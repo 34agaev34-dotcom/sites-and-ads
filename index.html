@@ -1,0 +1,1490 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Теймур — сайты и реклама</title>
+<meta name="description" content="Делаю сайты и настраиваю Telegram Ads и Авито. Сайт и реклама в одних руках, заявки приходят вам прямо в Telegram.">
+<meta name="theme-color" content="#de0419">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23de0419'/%3E%3Cpath d='M16 18h32v8H36v22h-8V26H16z' fill='%23f4f2ed'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@500&family=Sofia+Sans+Extra+Condensed:wght@800&display=swap" rel="stylesheet">
+<script type="importmap">
+{ "imports": { "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.mjs" } }
+</script>
+<script>document.documentElement.classList.add('js')</script>
+<noscript><style>#preloader{display:none}</style></noscript>
+<style>
+/* ---------- токены ---------- */
+:root{
+  --raw-color-white:#ffffff; --raw-color-black:#000000; --raw-color-red-600:#de0419;
+  --raw-color-cream-50:#f4f2ed; --raw-color-cream-100:#edeae2; --raw-color-sand-200:#d8d3c0;
+  --raw-color-stone-500:#6e6a60; --raw-color-ink-950:#14130f;
+  --background:var(--raw-color-cream-100); --foreground:var(--raw-color-black);
+  --surface-accent:var(--raw-color-red-600); --foreground-accent:var(--raw-color-red-600);
+  --foreground-on-accent:var(--raw-color-white); --foreground-on-band:var(--raw-color-cream-50);
+  --foreground-strong:var(--raw-color-ink-950); --foreground-muted:var(--raw-color-stone-500);
+  --scrim:var(--raw-color-ink-950); --rule:var(--raw-color-sand-200);
+  --surface-subtle:var(--raw-color-sand-200); --surface-overlay:var(--raw-color-cream-50);
+  --duration-fast:150ms; --duration-normal:250ms;
+  --text-display:15rem; --text-wordmark:12.01425rem; --text-manifesto:4.875rem; --text-statement:4.25rem; --text-section:3.875rem;
+  --text-category:3.375rem; --text-headline:2.875rem; --text-title:1.625rem; --text-plus:1.125rem;
+  --text-body:1.125rem; --text-label:1rem; --text-caption:.875rem; --text-micro:.75rem; --text-nano:.5625rem;
+  --radius-image:.125rem; --radius-pill:6.25rem;
+  --ease-entrance:cubic-bezier(.2,0,0,1);
+  --font-serif:"Cormorant Garamond","Times New Roman",Georgia,serif;
+  --font-display:"Sofia Sans Extra Condensed","Display Fallback","Arial Narrow",sans-serif;
+  --font-sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@font-face{font-family:"Display Fallback";font-weight:700 800;src:local("Arial Bold"),local("Arial-BoldMT"),local("Helvetica Neue Bold"),local("Roboto Bold"),local("Liberation Sans Bold");size-adjust:62%}
+
+/* ---------- корень: четыре макета ---------- */
+html{font-size:16px;-webkit-text-size-adjust:100%}
+@media (max-width:1440px){html{font-size:1.111111vw}}
+@media (max-width:1024px){html{font-size:1.5625vw}}
+@media (max-width:768px){html{font-size:2.083333vw}}
+@media (max-width:548px){html{font-size:4.102564vw}}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--background);color:var(--foreground);font:500 var(--text-body)/1.3 var(--font-serif);font-variant-numeric:lining-nums;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,p,ul,ol{margin:0;padding:0}
+ul,ol{list-style:none}
+*{font-variant-numeric:lining-nums !important}
+a{color:inherit}
+button,input,textarea{font:inherit;color:inherit}
+button{background:none;border:0;padding:0;cursor:pointer}
+svg{display:block}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.trim{text-box:trim-both cap alphabetic}
+.hair{position:absolute;display:block;height:1px;background:var(--rule);transform-origin:left}
+:focus-visible{outline:.125rem solid currentColor;outline-offset:.1875rem}
+.has-fc [data-frame-cursor],.has-fc [data-frame-cursor] button{cursor:none}
+
+/* ---------- движок текста ---------- */
+.lr{display:flex;flex-wrap:wrap;column-gap:var(--cg,.22em)}
+.lr.pre{visibility:hidden}
+.lr .w{display:block;white-space:nowrap}
+.lr .ln{display:flex;flex:0 0 100%;min-width:0;justify-content:inherit}
+.lr .ln--clip{overflow:hidden}
+.lr .u{display:flex;column-gap:var(--cg,.22em);will-change:transform}
+.wr{display:flex;column-gap:var(--cg,.22em);white-space:nowrap}
+.wr .w{display:inline-flex}
+.wr .ch{display:inline-block}
+
+/* ---------- шапка ---------- */
+.hdr{--hdr-fg:var(--foreground-accent);--hdr-bg:var(--background);position:fixed;left:0;top:0;z-index:50;width:100%;height:4.5rem;border-bottom:.08125rem solid var(--hdr-fg);background:var(--hdr-bg);color:var(--hdr-fg);transition:color var(--duration-normal) var(--ease-entrance),background-color var(--duration-normal) var(--ease-entrance),border-color var(--duration-normal) var(--ease-entrance)}
+.hdr.is-accent{--hdr-fg:var(--foreground-on-accent);--hdr-bg:var(--surface-accent)}
+.hdr__mark{position:absolute;left:2rem;top:50%;translate:0 -50%;font:500 var(--text-label)/1 var(--font-sans);letter-spacing:.14em;text-decoration:none}
+.hdr__nav{position:absolute;top:calc(50% + .071875rem)}
+.hdr__nav--primary{left:50%;translate:-50% -50%}
+.hdr__nav--util{right:2rem;translate:0 -50%}
+.hdr__nav ul{display:flex;align-items:center;gap:2.5rem;font:800 1.125rem/1 var(--font-display);letter-spacing:.08em;text-transform:uppercase}
+.nav-item{position:relative;isolation:isolate;flex-shrink:0}
+.nav-item__bar{position:absolute;inset:-.2em -.42em;z-index:-1;display:block;transform-origin:left;transform:scaleX(0);background:var(--bar,var(--hdr-fg))}
+.nav-item__label{display:block;white-space:nowrap;text-decoration:none;letter-spacing:inherit;text-transform:inherit;transition:color var(--duration-fast) var(--ease-entrance)}
+@media (hover:hover) and (min-width:769px){.nav-item:hover .nav-item__label{color:var(--bar-ink,var(--hdr-bg))}}
+@media (max-width:1024px){.hdr__mark{left:1.5rem}.hdr__nav ul{gap:1.875rem}.hdr__nav--util{right:1.5rem}}
+@media (max-width:768px){.hdr{height:4rem}.hdr__nav ul{gap:1.25rem}.hdr__nav--primary{left:calc(50% - 2.8125rem)}}
+@media (max-width:548px){.hdr{height:3.1875rem}.hdr__mark{left:1rem}.hdr__nav--primary{display:none}.hdr__nav--util{right:1rem}.hdr__nav ul{gap:1rem;font-size:1rem}}
+
+/* ---------- 1. первый экран ---------- */
+.hero{position:relative;width:100%;min-height:100lvh;overflow:hidden;background:var(--background);color:var(--foreground-accent)}
+.hero__stage{position:relative;width:100%;height:50rem}
+.js .gate{visibility:hidden}
+.js .gate.is-open,.no-engine .gate{visibility:visible}
+.hero__h1{position:absolute;inset:0;pointer-events:none;font:800 var(--text-display)/.72 var(--font-display);text-transform:uppercase;color:var(--foreground-accent)}
+.hero__word{position:absolute;pointer-events:auto;white-space:nowrap;text-box:trim-both cap alphabetic}
+#hw1{left:1.5625rem;top:7.5rem}
+#hw2{left:16rem;top:19.625rem;display:flex;align-items:center;gap:.5rem}
+.hero__rule{display:none;position:absolute;left:1rem;top:18.375rem;width:22.375rem;height:1px;background:var(--rule)}
+.cap{position:absolute;font:600 var(--text-body)/1.1 var(--font-serif);text-transform:uppercase}
+#c1{left:74.3125rem;top:7.375rem;width:4.5625rem}
+#c2{left:74.3125rem;top:13.125rem}
+#c3{left:2rem;top:23.875rem;width:6rem}
+#c4{left:2rem;top:29.25rem;width:6rem}
+#c5{left:46.0625rem;top:34.6875rem;width:7rem;translate:-100% 0}
+#c5 .lr{justify-content:flex-end;text-align:right}
+#c6{left:46.0625rem;top:46.9375rem;translate:-100% 0;white-space:nowrap}
+#c7{left:69.875rem;top:37.5625rem;white-space:nowrap}
+#c8{left:88rem;top:37.6875rem;translate:-100% 0}
+.hero__cta{position:absolute;left:73.5625rem;top:28.625rem;display:flex;width:max-content;align-items:center;white-space:nowrap;font:800 var(--text-title)/1.3 var(--font-display);letter-spacing:.08em;text-transform:uppercase;color:inherit}
+.hero__cta .lr{padding:0 .22em}
+.hero__cta .br{display:block}
+.hero__welcome{position:absolute;left:2rem;top:43.8125rem;width:10.6875rem;margin-top:-.24375rem;font:800 var(--text-title)/1 var(--font-display);text-transform:uppercase}
+.plate{position:absolute;isolation:isolate;overflow:hidden;border-radius:var(--radius-image)}
+.plate__reveal{position:absolute;inset:0;display:block}
+.plate svg{position:absolute;inset:0;width:100%;height:100%}
+.plate__tint{position:absolute;inset:0;pointer-events:none;background:var(--surface-accent);mix-blend-mode:color-burn;clip-path:inset(100% 0 0 0)}
+#pA{left:79.3125rem;top:7.5rem;width:8.6875rem;height:6.5rem}
+#pB{left:9.25rem;top:24rem;width:6.4375rem;height:6.25rem}
+#pC{left:46.5625rem;top:34.8125rem;width:22.8125rem;height:13.1875rem}
+#pD{left:69.875rem;top:38.9375rem;width:8.8125rem;height:9.0625rem}
+#pE{left:79.1875rem;top:38.9375rem;width:8.8125rem;height:9.0625rem}
+.v-s{font:600 12px var(--font-serif)}
+.v-b{font:600 14px var(--font-serif)}
+.v-d{font:800 15px var(--font-display)}
+@media (max-width:1024px){
+  .hero__stage{height:48rem}
+  .hero__h1{font-size:12.75rem}
+  #hw1{left:1.5rem;top:6.125rem} #hw2{left:15.125rem;top:15.8125rem}
+  .cap{font-size:var(--text-label)}
+  #c1{left:45.625rem;top:5.8125rem;width:4rem} #c2{left:45.625rem;top:14.375rem}
+  #c3{left:1.5rem;top:23.125rem} #c4{left:1.5rem;top:24.5rem;width:12rem}
+  #c5{left:16.875rem;top:29.6875rem;width:16rem;translate:none} #c5 .lr{justify-content:flex-start;text-align:left}
+  #c6{left:42.0625rem;top:30.5rem}
+  #c7{left:42.5625rem;top:35.1875rem} #c8{left:62.5rem;top:35.25rem}
+  .hero__cta{left:auto;right:1.5rem;top:30.125rem;font-size:1.25rem}
+  .hero__welcome{left:1.5rem;top:42.6875rem;width:9.75rem;font-size:1.5rem}
+  #pA{left:50.125rem;top:6rem;width:12.375rem;height:9.1875rem}
+  #pB{left:1.5rem;top:15.6875rem;width:9.8125rem;height:7.125rem}
+  #pC{left:16.875rem;top:31.9375rem;width:25.1875rem;height:14.5625rem}
+  #pD{left:42.5625rem;top:36.5rem;width:9.75rem;height:10rem}
+  #pE{left:52.8125rem;top:36.5rem;width:9.6875rem;height:10rem}
+}
+@media (max-width:768px){
+  .hero__stage{height:64rem}
+  .hero__h1{font-size:9.4375rem}
+  #hw1{top:5.5625rem} #hw2{left:11.3125rem;top:13.1875rem}
+  #c1{left:32.5625rem;top:5.375rem} #c2{left:32.5625rem;top:11.5625rem}
+  #c3{top:18.1875rem} #c4{top:19.5rem;width:6.5rem}
+  #c5{left:1.5rem;top:24.8125rem} #c6{left:auto;right:1.5rem;top:24.6875rem;translate:none}
+  #c7{left:1.5rem;top:48.75rem} #c8{left:46.5rem;top:48.875rem}
+  .hero__cta{top:20.875rem;font-size:1.125rem}
+  .hero__welcome{left:17.6875rem;top:55.5625rem;width:12.6875rem;font-size:1.25rem}
+  .hero__welcome .lr{justify-content:center;text-align:center}
+  #pA{left:37.3125rem;top:5.5rem;width:9.1875rem;height:6.8125rem}
+  #pB{top:13.125rem;width:7.5625rem;height:4.6875rem}
+  #pC{left:1.5rem;top:26.3125rem;width:45rem;height:21rem}
+  #pD{left:1.5rem;top:50.25rem;width:10.875rem;height:12.25rem}
+  #pE{left:35.625rem;top:50.25rem;width:10.875rem;height:12.25rem}
+}
+@media (max-width:548px){
+  .hero__stage{height:52.75rem}
+  .hero__h1{font-size:4.875rem}
+  #hw1{left:1rem;top:4.1875rem} #hw2{left:5.3125rem;top:8.3125rem;gap:.1875rem}
+  .hero__rule{display:block}
+  .cap{font-size:var(--text-caption)}
+  #c1,#c2,#c3,#c4,#pA,#pB{display:none}
+  #c5{left:1rem;top:32.75rem;width:15rem} #c6{right:1rem;top:32.75rem}
+  #c7{left:1rem;top:51.1875rem} #c8{left:23.375rem;top:51.1875rem}
+  .hero__cta{right:1rem;top:16.125rem;font-size:1rem}
+  .hero__welcome{left:1rem;top:15rem;width:6.5rem;font-size:.875rem}
+  .hero__welcome .lr{justify-content:flex-start;text-align:left}
+  #pC{left:1rem;top:19.6875rem;width:22.375rem;height:12.5625rem}
+  #pD{left:1rem;top:35.125rem;width:11.1875rem;height:15.5625rem}
+  #pE{left:12.625rem;top:35.125rem;width:10.75rem;height:15.5625rem}
+}
+
+/* ---------- 2. манифест ---------- */
+.mani{position:relative;width:100%;height:50rem;overflow:hidden;background:var(--surface-accent)}
+.mani__h{position:absolute;left:calc(50% + .03125rem);top:50%;translate:-50% -50%;display:flex;width:max-content;flex-direction:column;align-items:center;gap:.25rem;font:500 var(--text-statement)/1.0769 var(--font-serif);color:var(--foreground-on-accent)}
+.mani__row{display:flex;align-items:center;white-space:nowrap}
+.mani__row--a{gap:.22em}
+.mani__row--g{position:relative;gap:1.125rem}
+.mani em{position:relative;display:inline-block;font-style:italic}
+.mani__ul{position:absolute;left:0;right:0;bottom:.02em;height:.045em;transform-origin:left;transform:scaleX(0);background:currentColor}
+.gap{position:relative;flex-shrink:0;width:6.5rem;height:3.75rem}
+.gap__c{position:absolute;left:50%;top:50%;display:block;width:8.125rem;height:8.125rem;translate:-50% -50%}
+.chair,.chair__rock{display:block;width:100%;height:100%}
+.chair__rock{transform-origin:50% 92%}
+.chair svg{width:100%;height:100%}
+@media (max-width:1024px){.mani{height:34.5rem}.mani__h{font-size:3rem}.mani__row--g{gap:.875rem}.gap{width:4.75rem;height:2.75rem}.gap__c{width:6rem;height:6rem}}
+@media (max-width:768px){.mani{height:25rem}.mani__h{font-size:2.25rem}.mani__row--g{gap:.625rem}.gap{width:3.625rem;height:2.125rem}.gap__c{width:4.5rem;height:4.5rem}}
+@media (max-width:548px){.mani{height:13.5rem}.mani__h{left:50%;font-size:1.125rem}.mani__row--g{gap:.375rem}.gap{width:2rem;height:1.1875rem}.gap__c{width:2.625rem;height:2.625rem}}
+
+/* ---------- 3. услуги ---------- */
+.cat{position:relative;width:100%;height:50rem;overflow:hidden;background:var(--background)}
+.cat__eyebrow{position:absolute;left:2rem;top:2rem;white-space:nowrap;font:600 var(--text-body)/1.1 var(--font-serif);text-transform:uppercase}
+.cat__support{position:absolute;left:59.8125rem;top:2rem;width:27.1875rem;font:500 var(--text-body)/1.3 var(--font-serif);color:var(--foreground-strong)}
+.cat__hair{left:2rem;top:6.625rem;width:86rem}
+.cat__band{position:absolute;left:0;top:17.4375rem;width:100%;height:4.125rem;pointer-events:none}
+.cat__bandfill{display:block;width:100%;height:100%;transform-origin:center;background:var(--surface-accent)}
+.cat__plate{position:absolute;top:19rem}
+.cat__plate--l{left:9.375rem}
+.cat__plate--r{right:9.375rem}
+.tilt{display:block;translate:0 -50%}
+.cat__plate--l .tilt{rotate:-2deg}
+.cat__plate--r .tilt{rotate:2deg}
+.cplate{display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;border-radius:var(--radius-image);padding:.875rem;color:var(--foreground-strong)}
+.cplate--l{width:12.25rem;height:9.25rem;background:var(--surface-subtle)}
+.cplate--r{width:10.75rem;height:13.125rem;background:var(--surface-overlay);border:1px solid var(--rule)}
+.cplate__n{font:800 3rem/.8 var(--font-display);color:var(--foreground-accent)}
+.cplate__t{font:600 var(--text-caption)/1.2 var(--font-serif)}
+.cplate__e{font:600 var(--text-micro)/1 var(--font-serif);letter-spacing:.08em;text-transform:uppercase;color:var(--foreground-muted)}
+.cplate__k{font:italic 500 1.75rem/1 var(--font-serif)}
+.cat__list{position:absolute;left:calc(50% + .03125rem);top:9.1875rem;translate:-50% 0;display:flex;flex-direction:column;align-items:center;overflow:hidden;white-space:nowrap}
+.cat__row{display:flex;flex-shrink:0;align-items:flex-start;gap:.5rem;padding:.25rem 0;cursor:default}
+.cat__label{display:block;font:500 var(--text-category)/1.0741 var(--font-serif);color:var(--foreground-strong);transition:color var(--duration-fast) var(--ease-entrance)}
+.cat__count{display:block;font:800 var(--text-caption)/1.5 var(--font-display);letter-spacing:.04em;color:var(--foreground-muted);transition:color var(--duration-fast) var(--ease-entrance)}
+.cat__row.is-active .cat__label,.cat__row.is-active .cat__count{color:var(--foreground-on-band)}
+@media (max-width:1024px){
+  .cat{height:43.9375rem}
+  .cat__support{left:35.75rem;width:26.25rem}
+  .cat__hair{width:60rem}
+  .cat__plate--l{left:6.875rem} .cat__plate--r{right:2.25rem}
+  .cat__list{left:25.8125rem;top:9.5rem;translate:none}
+  .cat__row{gap:.40625rem;padding:.203125rem 0}
+  .cat__label{font-size:2.75rem} .cat__count{font-size:.75rem}
+}
+@media (max-width:768px){
+  .cat{height:36.875rem}
+  .cat__eyebrow{left:1.5rem;top:1.5rem;font-size:var(--text-label)}
+  .cat__support{left:28.125rem;top:1.5rem;width:17.875rem;font-size:.9375rem;line-height:1.2}
+  .cat__hair{left:1.5rem;top:6.1875rem;width:44rem}
+  .cat__plate--l{left:1.5rem} .cat__plate--r{right:1.6875rem}
+  .cat__list{left:50%;top:8rem;translate:-50% 0}
+  .cat__row{gap:.3125rem;padding:.390625rem 0}
+  .cat__label{font-size:2.125rem} .cat__count{font-size:.6875rem}
+  .cplate{padding:.5rem}
+  .cplate--l{width:7.75rem;height:5.875rem} .cplate--r{width:6.5rem;height:8rem}
+  .cplate__t{display:none} .cplate__n{font-size:2.5rem} .cplate__k{font-size:1.125rem} .cplate__e{font-size:.625rem}
+}
+@media (max-width:548px){
+  .cat{height:24.1875rem}
+  .cat__eyebrow{left:1rem;width:22.375rem;text-align:center;font-size:var(--text-caption)}
+  .cat__support{left:1.9375rem;top:3.0625rem;width:20.5rem;text-align:center;font-size:.8125rem}
+  .cat__hair{left:1rem;top:6.0625rem;width:22.375rem}
+  .cat__plate--l{left:1rem} .cat__plate--r{right:1rem}
+  .cat__list{top:7.375rem}
+  .cat__row{gap:.203125rem;padding:.101563rem 0}
+  .cat__label{font-size:1.375rem} .cat__count{font-size:.625rem}
+  .cplate{padding:.375rem}
+  .cplate--l{width:4.5rem;height:3.5rem} .cplate--r{width:4.25rem;height:5.25rem}
+  .cplate__n{font-size:1.75rem} .cplate__k{font-size:.8125rem} .cplate__e{display:none}
+}
+
+/* ---------- 4. работы ---------- */
+.prod{position:relative;width:100%;height:50rem;overflow:hidden;background:var(--background)}
+.prod__h,.flow__h{position:absolute;left:2rem;top:2rem;white-space:nowrap;font:500 var(--text-section)/1.0968 var(--font-serif)}
+.prod__support,.flow__support{position:absolute;left:59.8125rem;top:2.25rem;font:500 var(--text-body)/1.2 var(--font-serif)}
+.prod__support{width:15rem}
+.sec-hair{left:2rem;top:7.75rem;width:86rem}
+.pills{position:absolute;left:2rem;top:10.3125rem;display:flex;align-items:flex-start;gap:.5rem;overflow:hidden}
+.pill{position:relative;isolation:isolate;display:flex;flex-shrink:0;overflow:hidden;border-radius:var(--radius-pill);border:.0625rem solid var(--foreground)}
+.pill button{display:block;padding:.6875rem 1rem;font:600 var(--text-label)/1.2 var(--font-serif);letter-spacing:.04em}
+.pill__fill{position:absolute;inset:0;z-index:-1;display:block;transform-origin:left;transform:scaleX(0);background:var(--surface-subtle)}
+.pill.is-active{background:var(--foreground);color:var(--foreground-on-band)}
+.pill.is-active .pill__fill{display:none}
+.prod__sort{position:absolute;right:2rem;top:11.4375rem;white-space:pre;font:600 var(--text-label)/1.2 var(--font-serif);letter-spacing:.04em}
+.prod__sort svg{display:inline-block;width:.5em;height:.62em;vertical-align:baseline}
+.cards{position:absolute;left:2rem;top:13.5625rem;display:flex;width:86rem;align-items:flex-start;gap:1.5rem;overflow:hidden}
+.card{display:flex;width:20.375rem;flex-shrink:0;flex-direction:column;gap:1.25rem;overflow:hidden;transition:opacity var(--duration-normal) var(--ease-entrance)}
+.card.is-dim{opacity:.22}
+.card article{display:contents}
+.card__plate{position:relative;width:100%;height:27.375rem;flex-shrink:0;overflow:hidden;border-radius:var(--radius-image);container-type:inline-size;background:var(--surface-subtle);color:var(--foreground-strong)}
+.card__plate--cream{background:var(--surface-overlay);color:var(--foreground-accent);box-shadow:inset 0 0 0 1px var(--rule)}
+.card__plate--ink{background:var(--raw-color-ink-950);color:var(--foreground-on-band)}
+.card__plate--red{color:var(--foreground-accent)}
+.poster{position:absolute;left:6cqw;right:6cqw;bottom:5cqw;display:flex;flex-direction:column;font:800 30cqw/.84 var(--font-display);text-transform:uppercase}
+.poster span{display:block;width:max-content;white-space:nowrap}
+.card__idx{position:absolute;left:1rem;top:1rem;font:600 var(--text-body)/1.3 var(--font-serif);letter-spacing:.06em}
+.chip{position:absolute;right:1rem;top:1rem;width:1.75rem;height:1.75rem;overflow:hidden;border-radius:var(--radius-pill);background:var(--surface-subtle);color:var(--foreground-strong);transition:background-color var(--duration-fast) var(--ease-entrance),rotate var(--duration-fast) var(--ease-entrance),color var(--duration-fast) var(--ease-entrance)}
+.card__plate:not(.card__plate--cream):not(.card__plate--ink) .chip{background:var(--surface-overlay)}
+.chip[aria-pressed="true"]{background:var(--surface-accent);color:var(--foreground-on-accent);rotate:90deg}
+@media (hover:hover){.card:hover .chip{background:var(--surface-accent);color:var(--foreground-on-accent)}}
+.plus{position:absolute;inset:0;display:block;font-size:var(--text-body)}
+.plus i{position:absolute;left:50%;top:50%;translate:-50% -50%;border-radius:.5px;background:currentColor}
+.plus i:first-child{width:.5em;height:.07em}
+.plus i:last-child{width:.07em;height:.5em}
+.card__meta{display:flex;flex-direction:column;gap:.5rem;font-family:var(--font-serif)}
+.card__meta h3{white-space:nowrap;font:500 var(--text-title)/1.1538 var(--font-serif)}
+.card__meta p{font:600 var(--text-label)/1.2 var(--font-serif);color:color-mix(in oklab,var(--foreground) 45%,transparent)}
+.card__foot{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
+.badge{border-radius:var(--radius-pill);border:.0625rem solid var(--foreground);padding:.4375rem .75rem;font:600 var(--text-caption)/1.2 var(--font-serif);letter-spacing:.04em;white-space:nowrap}
+.card__link{font:600 var(--text-body)/1.2 var(--font-serif);letter-spacing:.02em;white-space:nowrap;text-decoration-color:var(--foreground-accent);text-underline-offset:.25em}
+@media (max-width:1024px){
+  .prod{height:43.125rem}
+  .prod__h,.flow__h{font-size:3.25rem}
+  .prod__support{left:47rem;top:2rem;width:15.5rem}
+  .sec-hair{width:60rem}
+  .cards{width:60rem}
+  .card{width:13.875rem}
+  .card__plate{height:18.75rem}
+}
+@media (max-width:768px){
+  .prod{height:89.75rem}
+  .prod__h{left:1.5rem;top:1.5rem;width:22rem;white-space:normal;font-size:2.25rem;line-height:1}
+  .prod__support{left:32rem;top:1.75rem;width:14.5rem;font-size:1rem}
+  .prod .sec-hair{left:1.5rem;top:7.5rem;width:45rem}
+  .pills{left:1.5rem;top:9.0625rem}
+  .prod__sort{right:1.5rem;top:12rem;font-size:.9375rem}
+  .cards{left:1.5rem;top:13.8125rem;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;width:45rem}
+  .card{width:100%}
+  .card__plate{height:29.25rem}
+}
+@media (max-width:548px){
+  .prod{height:150.5rem}
+  .prod__h{left:1rem;width:22.375rem;font-size:1.75rem;line-height:1.0968}
+  .prod__support{left:1rem;top:4rem;width:22.375rem;font-size:.875rem}
+  .prod .sec-hair{left:1rem;top:6.75rem;width:22.375rem}
+  .pills{left:1rem;top:8.0625rem;width:22.375rem;flex-wrap:wrap;overflow:visible}
+  .prod__sort{left:1rem;right:auto;top:14.5625rem;font-size:var(--text-caption)}
+  .cards{left:1rem;top:16.5rem;grid-template-columns:minmax(0,1fr);gap:2.5rem;width:22.375rem}
+  .card__plate{height:23.75rem}
+  .card__meta h3{font-size:1.375rem}
+}
+
+/* ---------- 5. схема ---------- */
+.flow{position:relative;width:100%;overflow:hidden;background:var(--background);padding:10.3125rem 2rem 2rem}
+.flow__support{width:18.6875rem}
+.flow__frame{position:relative;width:86rem}
+.flow__plate{position:relative;width:100%;aspect-ratio:1376/603;overflow:hidden;border-radius:var(--radius-image);background:var(--raw-color-ink-950)}
+.flow__art{position:absolute;inset:0;width:100%;height:100%}
+.t-s{font:600 13px var(--font-serif)}
+.t-b{font:600 15px var(--font-serif)}
+.t-d{font:800 50px var(--font-display)}
+.flow__scrim{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity var(--duration-normal) var(--ease-entrance)}
+.tags{position:absolute;inset:0;z-index:2}
+.tag{position:absolute}
+.tag button{position:relative;display:flex;align-items:center;gap:.75rem;overflow:hidden;border-radius:var(--radius-pill);background:color-mix(in oklab,var(--surface-overlay) 92%,transparent);padding:.375rem 1.25rem .375rem .375rem;text-align:left;transition:opacity var(--duration-normal) var(--ease-entrance)}
+.tag.is-dim button{opacity:0;pointer-events:none}
+.tag__mark{position:relative;width:1.875rem;height:1.875rem;flex-shrink:0;overflow:hidden;border-radius:var(--radius-pill);background:var(--surface-subtle);color:var(--foreground-strong);transition:background-color var(--duration-fast) var(--ease-entrance),rotate var(--duration-fast) var(--ease-entrance),color var(--duration-fast) var(--ease-entrance)}
+.tag__mark .plus{font-size:var(--text-plus)}
+.tag.is-on .tag__mark{background:var(--surface-accent);color:var(--foreground-on-accent);rotate:45deg}
+.tag button:focus-visible .tag__mark{background:var(--surface-accent);color:var(--foreground-on-accent)}
+@media (hover:hover){.tag button:hover .tag__mark{background:var(--surface-accent);color:var(--foreground-on-accent)}}
+.tag__text{display:flex;flex-shrink:0;flex-direction:column;align-items:flex-start;gap:.3125rem;white-space:nowrap;font-family:var(--font-serif)}
+.tag__name{font:600 var(--text-caption)/1 var(--font-serif);letter-spacing:.01em;color:var(--foreground-strong)}
+.tag__spec{font:600 var(--text-micro)/1 var(--font-serif);letter-spacing:.02em;color:var(--foreground-muted)}
+.flow__meta{position:absolute;left:2rem;right:2rem;bottom:1.125rem;display:flex;justify-content:space-between;gap:1rem;pointer-events:none;font:600 var(--text-label)/1.2 var(--font-serif);letter-spacing:.04em;color:var(--foreground-on-band)}
+.flow__pick{display:none}
+@media (max-width:1024px){
+  .flow__support{left:43.25rem;top:2rem;width:18.75rem}
+  .flow__frame{width:60rem}
+  .tag__spec{display:none}
+  .tag button{padding-right:1rem}
+}
+@media (max-width:768px){
+  .flow{padding:7.0625rem 1.5rem 1.5rem}
+  .flow__h{left:1.5rem;top:1.5rem;font-size:2.25rem}
+  .flow__support{left:30.875rem;top:1.25rem;width:15.625rem;font-size:1rem}
+  .flow .sec-hair{left:1.5rem;top:5.5rem;width:45rem}
+  .flow__frame{width:45rem}
+  .flow__meta{left:1rem;right:1rem;bottom:.75rem;font-size:var(--text-caption)}
+}
+@media (max-width:548px){
+  .flow{padding:9.0625rem 1rem 1.5rem}
+  .flow__h{left:1rem;width:22.375rem;font-size:1.75rem}
+  .flow__support{left:1rem;top:4rem;width:22.375rem;font-size:.875rem}
+  .flow .sec-hair{left:1rem;top:7.75rem;width:22.375rem}
+  .flow__frame{width:22.375rem}
+  .tag button{gap:0;overflow:visible;background:transparent;padding:0}
+  .tag button::after{content:"";position:absolute;inset:-.625rem}
+  .tag__mark{width:1.375rem;height:1.375rem}
+  .tag__mark .plus{font-size:.825rem}
+  .tag__text{display:none}
+  .flow__meta,.flow__pick{position:static;min-height:1.125rem;margin-top:.75rem;font:600 var(--text-caption)/1.2 var(--font-serif);letter-spacing:.04em;color:var(--foreground)}
+  .flow.has-pick .flow__meta{display:none}
+  .flow.has-pick .flow__pick{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem}
+  .flow__pick b{font-weight:600;color:var(--foreground-accent)}
+  .flow__pick span{text-align:right;color:color-mix(in oklab,var(--foreground) 50%,transparent)}
+}
+
+/* ---------- 6. подвал ---------- */
+.foot{position:relative;width:100%;height:34.4375rem;overflow:hidden;background:var(--surface-accent);color:var(--foreground-on-accent)}
+.lock{position:absolute;left:2rem;top:2rem;display:flex;width:26.875rem;flex-direction:column;align-items:flex-start;gap:2rem}
+.lock h2{width:100%;font:500 var(--text-headline)/1.0435 var(--font-serif)}
+.lock h2 .lr{white-space:nowrap}
+.quick{position:relative;display:flex;width:100%;height:3.25rem;align-items:center;justify-content:space-between;overflow:hidden;border-radius:var(--radius-pill);border:1px solid color-mix(in oklab,var(--foreground-on-accent) 35%,transparent);padding:.375rem .375rem .375rem 1.25rem;transition:border-color var(--duration-normal) var(--ease-entrance)}
+.quick.is-awake{border-color:color-mix(in oklab,var(--foreground-on-accent) 90%,transparent)}
+.quick__label{position:absolute;left:1.25rem;pointer-events:none;font:800 var(--text-nano)/1 var(--font-display);letter-spacing:.14em;text-transform:uppercase;color:color-mix(in oklab,var(--foreground-on-accent) 75%,transparent);opacity:0;transition:all var(--duration-normal) var(--ease-entrance)}
+.quick.is-awake .quick__label{translate:0 -.8rem;opacity:1}
+.quick input{min-width:0;flex:1;border:0;outline:0;background:transparent;font:600 var(--text-label)/1.3 var(--font-serif);transition:translate var(--duration-normal) var(--ease-entrance)}
+.quick input::placeholder{color:var(--foreground-on-accent);opacity:1}
+.quick.is-awake input{translate:0 .32rem}
+.quick button{position:relative;display:flex;height:100%;flex-shrink:0;align-items:center;overflow:hidden;border-radius:var(--radius-pill);background:color-mix(in oklab,var(--foreground-on-accent) 25%,transparent);padding:.75rem 1.5rem;font:600 var(--text-body)/1 var(--font-serif);transition:background-color var(--duration-fast) var(--ease-entrance)}
+.quick button:hover{background:color-mix(in oklab,var(--foreground-on-accent) 40%,transparent)}
+.quick__go{display:block}
+.quick__arrow{position:absolute;top:0;bottom:0;right:.5rem;display:flex;align-items:center;opacity:0}
+.lock__note{margin-top:-1.25rem;min-height:2.2em;font:600 var(--text-caption)/1.25 var(--font-serif);color:color-mix(in oklab,var(--foreground-on-accent) 80%,transparent)}
+.lock__note a{color:var(--foreground-on-accent)}
+.fnav{position:absolute;left:52.625rem;top:2rem;display:flex;align-items:flex-start;gap:8rem;white-space:nowrap;font-family:var(--font-serif);--bar:var(--foreground-on-accent);--bar-ink:var(--foreground-accent)}
+.fcol{display:flex;flex-shrink:0;flex-direction:column;align-items:flex-start;gap:.875rem}
+.fcol h3{font:600 var(--text-label)/1.3 var(--font-serif);letter-spacing:.08em;color:color-mix(in oklab,var(--foreground-on-accent) 60%,transparent)}
+.fcol ul{display:flex;flex-direction:column;align-items:flex-start;gap:.875rem;font:600 var(--text-body)/1.3 var(--font-serif)}
+.foot__hair{left:2rem;top:17.25rem;width:86rem;background:color-mix(in oklab,var(--foreground-on-accent) 35%,transparent)}
+.legal{position:absolute;left:2rem;top:18.5625rem;display:flex;flex-direction:column;align-items:flex-start;gap:.5rem;white-space:pre;font:600 var(--text-label)/1.3 var(--font-serif)}
+.legal--last{display:none}
+.social{position:absolute;right:2rem;top:18.5625rem;white-space:pre;font:600 var(--text-label)/1.3 var(--font-serif)}
+.wordmark{position:absolute;left:2rem;bottom:calc(2rem - .26em);display:flex;width:86rem;justify-content:space-between;font:500 var(--text-wordmark)/1.16 var(--font-serif)}
+.wordmark .lw{display:block;overflow:hidden}
+.wordmark .ll{display:block}
+@media (max-width:1024px){
+  .foot{height:32.625rem}
+  .fnav{left:36rem;width:26rem;justify-content:space-between;gap:0}
+  .foot__hair{width:60rem}
+  .wordmark{width:60rem;font-size:8.382rem}
+}
+@media (max-width:768px){
+  .foot{height:28.8125rem}
+  .lock{left:1.5rem;width:21.5rem}
+  .lock h2{font-size:2.25rem}
+  .fnav{left:25.25rem;width:21.25rem}
+  .fcol ul{font-size:1rem}
+  .foot__hair{left:1.5rem;top:15.5rem;width:45rem}
+  .legal{left:1.5rem;top:16.625rem;gap:.3125rem}
+  .social{right:1.5rem;top:16.625rem;font-size:.9375rem}
+  .wordmark{left:1.5rem;width:45rem;font-size:6.25rem;bottom:calc(1.5rem - .26em)}
+}
+@media (max-width:548px){
+  .foot{height:40.75rem}
+  .lock{left:1rem;top:1.5rem;width:22.375rem}
+  .lock h2{font-size:1.75rem}
+  .fnav{left:1rem;top:14.75rem;width:22.375rem}
+  .fcol{gap:1.0625rem}
+  .fcol ul{gap:1.25rem;font-size:1.0625rem}
+  .foot__hair{left:1rem;top:27.5rem;width:22.375rem}
+  .legal{left:1rem;top:28.75rem;width:20rem;white-space:pre-wrap;font-size:var(--text-caption)}
+  .legal .legal__end{display:none}
+  .social{left:1rem;right:auto;top:30.5rem;font-size:var(--text-caption)}
+  .wordmark{left:1rem;width:22.375rem;font-size:4.5rem;bottom:calc(3rem - .26em)}
+  .legal--last{display:block;top:auto;bottom:1rem}
+}
+
+/* ---------- панель заявки ---------- */
+.panel{position:fixed;inset:0;z-index:90;display:flex;flex-direction:column;background:var(--surface-accent);color:var(--foreground-on-accent);padding:1.5rem 2rem 2rem;transform:translateY(-100%);visibility:hidden}
+.panel__top{display:flex;flex-shrink:0;align-items:baseline;justify-content:space-between;font:800 1.125rem/1 var(--font-display);letter-spacing:.14em;text-transform:uppercase}
+.panel__top button{letter-spacing:inherit;text-transform:inherit;transition:opacity var(--duration-fast) var(--ease-entrance)}
+.panel__top button:hover{opacity:.7}
+.panel__scroll{min-height:0;flex:1;overflow-y:auto;margin-top:1.5rem;padding-right:.25rem}
+.panel__big{display:block;width:100%;border:0;border-bottom:.09375rem solid var(--foreground-on-accent);border-radius:0;outline:0;background:transparent;padding:.5rem 0 .625rem;font:800 var(--text-manifesto)/1 var(--font-display);letter-spacing:.02em;text-transform:uppercase;caret-color:currentColor}
+.panel__big::placeholder,.panel__task::placeholder{color:var(--foreground-on-accent);opacity:.4}
+.panel__big.is-bad{border-bottom-style:dashed}
+.panel__status{margin-top:1.25rem;font:600 var(--text-body)/1.3 var(--font-serif);letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.panel__chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
+.pchip{position:relative}
+.pchip input{position:absolute;inset:0;margin:0;opacity:0;cursor:pointer}
+.pchip span{display:block;border-radius:var(--radius-pill);border:.0625rem solid var(--foreground-on-accent);padding:.6875rem 1.125rem;font:600 var(--text-label)/1.2 var(--font-serif);letter-spacing:.04em;transition:background-color var(--duration-fast) var(--ease-entrance),color var(--duration-fast) var(--ease-entrance)}
+.pchip input:checked + span{background:var(--foreground-on-accent);color:var(--foreground-accent)}
+.pchip input:focus-visible + span{outline:.125rem solid currentColor;outline-offset:.1875rem}
+.panel__task{display:block;width:100%;margin-top:1.25rem;border:0;border-bottom:.09375rem solid var(--foreground-on-accent);border-radius:0;outline:0;resize:none;background:transparent;padding:.5rem 0;font:500 var(--text-title)/1.2 var(--font-serif)}
+.panel__refs{margin-top:.875rem;font:600 var(--text-label)/1.3 var(--font-serif);opacity:.85}
+.panel__foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.5rem}
+.consent{display:flex;align-items:center;gap:.625rem;font:600 var(--text-label)/1.2 var(--font-serif);cursor:pointer}
+.consent input{width:1.125rem;height:1.125rem;margin:0;accent-color:var(--raw-color-ink-950)}
+.panel__send{border-radius:var(--radius-pill);background:var(--foreground-on-accent);color:var(--foreground-accent);padding:1rem 2rem;font:800 1.25rem/1 var(--font-display);letter-spacing:.1em;text-transform:uppercase;transition:opacity var(--duration-fast) var(--ease-entrance)}
+.panel__send:hover{opacity:.85}
+.panel__send[disabled]{opacity:.6;cursor:default}
+.panel__msg{margin-top:1rem;min-height:1.4em;font:600 var(--text-body)/1.3 var(--font-serif)}
+.panel__msg a{color:inherit}
+.panel__hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+@media (max-width:1024px){.panel__big{font-size:3.75rem}}
+@media (max-width:768px){.panel{padding:1.5rem}.panel__big{font-size:3rem}}
+@media (max-width:548px){.panel{padding:1rem}.panel__big{font-size:2rem}.panel__task{font-size:1.25rem}.panel__send{width:100%}}
+
+/* ---------- курсор-рамка ---------- */
+.fc{position:fixed;inset:0;z-index:60;pointer-events:none}
+.fc i{position:absolute;display:block;width:.6875rem;height:.6875rem;border:0 solid var(--foreground-accent);opacity:0;transition:border-color var(--duration-fast) var(--ease-entrance)}
+.fc.is-light i{border-color:var(--foreground-on-band)}
+.fc i:nth-child(1){border-left-width:1.4px;border-top-width:1.4px}
+.fc i:nth-child(2){border-right-width:1.4px;border-top-width:1.4px}
+.fc i:nth-child(3){border-left-width:1.4px;border-bottom-width:1.4px}
+.fc i:nth-child(4){border-right-width:1.4px;border-bottom-width:1.4px}
+
+/* ---------- прелоадер ---------- */
+#preloader{position:fixed;inset:0;z-index:100;pointer-events:none}
+.pre__veil{position:absolute;inset:0;background:var(--background)}
+.pre__frame{position:absolute;left:50%;top:50%;width:460px;height:288px;transform:translate(-50%,-50%)}
+.pre__content{position:absolute;inset:.3125rem;overflow:hidden;opacity:0}
+.pre__content svg{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity 250ms}
+.pre__content svg.is-on{opacity:1}
+.pre__frame i{position:absolute;display:block;width:15px;height:15px;border:0 solid var(--foreground-accent)}
+.pre__frame i:nth-of-type(1){left:0;top:0;border-left-width:1.4px;border-top-width:1.4px}
+.pre__frame i:nth-of-type(2){right:0;top:0;border-right-width:1.4px;border-top-width:1.4px}
+.pre__frame i:nth-of-type(3){left:0;bottom:0;border-left-width:1.4px;border-bottom-width:1.4px}
+.pre__frame i:nth-of-type(4){right:0;bottom:0;border-right-width:1.4px;border-bottom-width:1.4px}
+.pre__cap{position:absolute;left:0;bottom:-2.125rem;display:flex;width:100%;align-items:baseline;justify-content:space-between;color:var(--foreground-accent);opacity:0}
+.pre__cap b{font:800 1.125rem/1 var(--font-display);letter-spacing:.16em;text-transform:uppercase}
+.pre__cap span{font:600 var(--text-body)/1 var(--font-serif);letter-spacing:.08em;font-variant-numeric:tabular-nums lining-nums}
+</style>
+</head>
+<body>
+
+<div id="preloader" role="status" aria-live="polite" aria-label="Загрузка">
+  <div class="pre__veil"></div>
+  <div class="pre__frame" aria-hidden="true">
+    <div class="pre__content"></div>
+    <i></i><i></i><i></i><i></i>
+    <div class="pre__cap"><b class="trim">Теймур</b><span class="trim" id="prePct">0%</span></div>
+  </div>
+</div>
+
+<header class="hdr" id="hdr">
+  <a class="hdr__mark" href="#top" aria-label="Теймур — наверх">ТЕЙМУР</a>
+  <nav class="hdr__nav hdr__nav--primary" aria-label="Разделы">
+    <ul>
+      <li class="nav-item" data-delay="120"><span class="nav-item__bar"></span><a class="nav-item__label trim" href="#services">Услуги</a></li>
+      <li class="nav-item" data-delay="190"><span class="nav-item__bar"></span><a class="nav-item__label trim" href="#works">Работы</a></li>
+      <li class="nav-item" data-delay="260"><span class="nav-item__bar"></span><a class="nav-item__label trim" href="#flow">Схема</a></li>
+      <li class="nav-item" data-delay="330"><span class="nav-item__bar"></span><a class="nav-item__label trim" href="#contact">Контакты</a></li>
+    </ul>
+  </nav>
+  <nav class="hdr__nav hdr__nav--util" aria-label="Заявка и связь">
+    <ul>
+      <li class="nav-item" data-delay="400"><span class="nav-item__bar"></span><button class="nav-item__label trim" type="button" data-open-lead id="hdrLead">Заявка <span id="refCount">(0)</span></button></li>
+      <li class="nav-item" data-delay="470"><span class="nav-item__bar"></span><a class="nav-item__label trim" data-tg href="https://t.me/Vae126" target="_blank" rel="noopener">Telegram</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+<!-- 1. первый экран -->
+<section class="hero" id="top" aria-label="Теймур — сайты и реклама">
+  <div class="hero__stage gate" id="heroGate">
+    <h1 class="hero__h1">
+      <span class="hero__word" id="hw1">сайты и</span>
+      <span class="hero__word" id="hw2">реклама <span aria-hidden="true">/</span></span>
+    </h1>
+    <span class="hero__rule" aria-hidden="true"></span>
+
+    <span class="cap" id="c1"><span data-lr data-delay="320" data-weight="soft">работы 2026</span></span>
+    <span class="cap" id="c2"><span data-lr data-delay="380" data-weight="soft">01-04</span></span>
+    <span class="cap" id="c3"><span data-lr data-delay="420" data-weight="soft">авито</span></span>
+    <span class="cap" id="c4"><span data-lr data-delay="480" data-weight="soft">профиль и показы</span></span>
+    <span class="cap" id="c5"><span data-lr data-delay="500" data-weight="soft">заявки с сайта в telegram</span></span>
+    <span class="cap" id="c6"><span data-lr data-delay="560" data-weight="soft">сразу в чат</span></span>
+    <span class="cap" id="c7"><span data-lr data-delay="600" data-weight="soft">новые заявки</span></span>
+    <span class="cap" id="c8" aria-hidden="true">//</span>
+
+    <button class="hero__cta" type="button" data-open-lead id="heroCta">
+      <span class="br" aria-hidden="true" data-br="-7">[</span>
+      <span data-lr data-delay="560">оставить заявку</span>
+      <span class="br" aria-hidden="true" data-br="7">]</span>
+    </button>
+
+    <p class="hero__welcome"><span data-lr data-delay="700" data-clip="0">Теймур – сайт и реклама из одних рук.</span></p>
+
+    <div class="plate" id="pA" data-frame-cursor="light" data-reveal="340"><span class="plate__reveal">
+      <svg viewBox="0 0 139 104" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Окно браузера с лендингом">
+        <rect width="139" height="104" fill="#14130f"/>
+        <rect x="24.5" y="20.5" width="90" height="63" rx="3" fill="none" stroke="#f4f2ed"/>
+        <path d="M24.5 30.5h90" stroke="#f4f2ed"/>
+        <circle cx="29.5" cy="25.5" r="1.6" fill="#de0419"/><circle cx="34.5" cy="25.5" r="1.6" fill="#f4f2ed"/><circle cx="39.5" cy="25.5" r="1.6" fill="#f4f2ed"/>
+        <rect x="31" y="38" width="46" height="7" fill="#f4f2ed"/><rect x="31" y="48" width="34" height="7" fill="#f4f2ed"/>
+        <rect x="31" y="62" width="28" height="10" rx="5" fill="#de0419"/>
+        <rect x="85" y="38" width="22" height="34" fill="#6e6a60"/>
+      </svg><span class="plate__tint"></span></span></div>
+
+    <div class="plate" id="pB" data-frame-cursor="light" data-reveal="440"><span class="plate__reveal">
+      <svg viewBox="0 0 103 100" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Карточка объявления на Авито">
+        <rect width="103" height="100" fill="#14130f"/>
+        <rect x="26" y="16" width="51" height="68" rx="3" fill="#f4f2ed"/>
+        <path d="M26 19a3 3 0 0 1 3-3h45a3 3 0 0 1 3 3v27H26z" fill="#d8d3c0"/>
+        <circle cx="69" cy="24" r="3.2" fill="#de0419"/>
+        <rect x="32" y="53" width="26" height="6" fill="#14130f"/>
+        <rect x="32" y="64" width="38" height="3" fill="#6e6a60"/><rect x="32" y="70" width="28" height="3" fill="#6e6a60"/>
+        <rect x="32" y="76" width="16" height="3" fill="#de0419"/>
+      </svg><span class="plate__tint"></span></span></div>
+
+    <div class="plate" id="pC" data-frame-cursor="light" data-reveal="520"><span class="plate__reveal">
+      <svg viewBox="0 0 365 211" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Чат в Telegram: две новые заявки с сайта">
+        <rect width="365" height="211" fill="#14130f"/>
+        <circle cx="41" cy="42" r="11" fill="#de0419"/><text x="41" y="47.5" text-anchor="middle" class="v-d" fill="#f4f2ed">З</text>
+        <text x="61" y="41" class="v-b" fill="#f4f2ed">Заявки с сайта</text><text x="61" y="54" class="v-s" fill="#6e6a60">бот</text>
+        <path d="M0 64.5h365" stroke="#6e6a60" opacity=".5"/>
+        <rect x="28" y="76" width="212" height="52" rx="12" fill="#f4f2ed"/><rect x="28" y="116" width="12" height="12" fill="#f4f2ed"/>
+        <text x="42" y="95" class="v-b" fill="#14130f">Новая заявка с сайта</text>
+        <text x="42" y="111" class="v-s" fill="#14130f">Марина, нужен лендинг</text>
+        <text x="230" y="121" text-anchor="end" class="v-s" fill="#6e6a60">10:12</text>
+        <rect x="28" y="136" width="232" height="52" rx="12" fill="#f4f2ed"/><rect x="28" y="176" width="12" height="12" fill="#f4f2ed"/>
+        <text x="42" y="155" class="v-b" fill="#14130f">Новая заявка с сайта</text>
+        <text x="42" y="171" class="v-s" fill="#14130f">Руслан, реклама в Telegram</text>
+        <text x="250" y="181" text-anchor="end" class="v-s" fill="#6e6a60">10:47</text>
+      </svg><span class="plate__tint"></span></span></div>
+
+    <div class="plate" id="pD" data-frame-cursor="light" data-reveal="620"><span class="plate__reveal">
+      <svg viewBox="0 0 141 145" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Телефон с уведомлениями о заявках">
+        <rect width="141" height="145" fill="#14130f"/>
+        <rect x="38.5" y="18.5" width="64" height="108" rx="9" fill="none" stroke="#f4f2ed"/>
+        <rect x="60" y="24" width="21" height="3" rx="1.5" fill="#6e6a60"/>
+        <rect x="44" y="40" width="53" height="24" rx="5" fill="#f4f2ed"/><circle cx="52" cy="48" r="3" fill="#de0419"/><rect x="59" y="46" width="30" height="4" fill="#14130f"/><rect x="50" y="55" width="38" height="3" fill="#6e6a60"/>
+        <rect x="44" y="69" width="53" height="24" rx="5" fill="#f4f2ed" opacity=".55"/>
+        <rect x="44" y="98" width="53" height="24" rx="5" fill="#f4f2ed" opacity=".25"/>
+      </svg><span class="plate__tint"></span></span></div>
+
+    <div class="plate" id="pE" data-frame-cursor="light" data-reveal="660"><span class="plate__reveal">
+      <svg viewBox="0 0 141 145" preserveAspectRatio="xMidYMid slice" role="img" aria-label="График: заявок становится больше">
+        <rect width="141" height="145" fill="#14130f"/>
+        <path d="M36 108.5h69" stroke="#6e6a60"/>
+        <rect x="40" y="88" width="11" height="20" fill="#f4f2ed"/><rect x="56" y="74" width="11" height="34" fill="#f4f2ed"/><rect x="72" y="58" width="11" height="50" fill="#f4f2ed"/><rect x="88" y="38" width="11" height="70" fill="#de0419"/>
+        <circle cx="93.5" cy="29" r="3" fill="#de0419"/>
+      </svg><span class="plate__tint"></span></span></div>
+  </div>
+</section>
+
+<!-- 2. манифест -->
+<section class="mani" data-header-accent aria-label="Как я работаю">
+  <h2 class="mani__h" id="mani">
+    <span class="sr-only">(Теймур) делает всё в одних руках, чтобы сайт и реклама работали вместе — а каждая заявка приходила вам прямо в Telegram, без посредников.</span>
+    <span class="mani__row mani__row--a" aria-hidden="true"><span data-wr>(Теймур) делает всё</span><em><span data-wr data-ul>в одних руках,</span><span class="mani__ul"></span></em></span>
+    <span class="mani__row mani__row--g" aria-hidden="true"><span data-wr>чтобы сайт</span><span class="gap"><span class="gap__c"><span class="chair" data-chair><span class="chair__rock">
+      <svg viewBox="0 0 130 130"><g transform="rotate(-6 65 70)"><rect x="17" y="34" width="96" height="70" rx="6" fill="#f4f2ed"/><path d="M17 40a6 6 0 0 1 6-6h84a6 6 0 0 1 6 6v10H17z" fill="#d8d3c0"/><circle cx="26" cy="42" r="2.4" fill="#14130f"/><circle cx="34" cy="42" r="2.4" fill="#14130f" opacity=".4"/><circle cx="42" cy="42" r="2.4" fill="#14130f" opacity=".4"/><rect x="26" y="59" width="52" height="8" fill="#14130f"/><rect x="26" y="71" width="36" height="8" fill="#14130f"/><rect x="26" y="87" width="32" height="10" rx="5" fill="#de0419"/><rect x="86" y="59" width="18" height="38" fill="#d8d3c0"/></g></svg>
+    </span></span></span></span><span data-wr>и реклама работали вместе —</span></span>
+    <span class="mani__row mani__row--g" aria-hidden="true"><span data-wr>а каждая заявка</span><span class="gap"><span class="gap__c"><span class="chair" data-chair><span class="chair__rock">
+      <svg viewBox="0 0 130 130"><path d="M14 62 116 26 56 78z" fill="#f4f2ed"/><path d="M116 26 92 106 56 78z" fill="#d8d3c0"/><path d="M56 78 60 108 73 91z" fill="#14130f"/></svg>
+    </span></span></span></span><span data-wr>приходила вам</span></span>
+    <span class="mani__row" aria-hidden="true"><span data-wr>прямо в Telegram, без посредников.</span></span>
+  </h2>
+</section>
+
+<!-- 3. услуги -->
+<section class="cat" id="services">
+  <h2 class="cat__eyebrow trim" id="catEyebrow">(02) — Услуги</h2>
+  <p class="cat__support" id="catSupport">Восемь направлений, и это весь список. Если нужного здесь нет, скажу об этом сразу.</p>
+  <span class="hair cat__hair" aria-hidden="true" id="catHair"></span>
+  <div class="cat__band" id="catBand" aria-hidden="true"><span class="cat__bandfill" id="catBandFill"></span></div>
+  <div class="cat__plate cat__plate--l" id="catPlateL" aria-hidden="true"><span class="tilt"><span class="cplate cplate--l" data-frame-cursor></span></span></div>
+  <div class="cat__plate cat__plate--r" id="catPlateR" aria-hidden="true"><span class="tilt"><span class="cplate cplate--r" data-frame-cursor></span></span></div>
+  <ul class="cat__list" id="catList">
+    <li class="cat__row"><span class="cat__label">Все услуги</span><span class="cat__count">8</span></li>
+    <li class="cat__row"><span class="cat__label">Лендинги</span><span class="cat__count">01</span></li>
+    <li class="cat__row"><span class="cat__label">Интернет-магазины</span><span class="cat__count">02</span></li>
+    <li class="cat__row"><span class="cat__label">Сайты-портфолио</span><span class="cat__count">03</span></li>
+    <li class="cat__row"><span class="cat__label">Telegram Ads</span><span class="cat__count">04</span></li>
+    <li class="cat__row"><span class="cat__label">Авито</span><span class="cat__count">05</span></li>
+    <li class="cat__row"><span class="cat__label">SEO</span><span class="cat__count">06</span></li>
+    <li class="cat__row"><span class="cat__label">Telegram-боты</span><span class="cat__count">07</span></li>
+    <li class="cat__row"><span class="cat__label">Mini Apps</span><span class="cat__count">08</span></li>
+  </ul>
+</section>
+
+<!-- 4. работы -->
+<section class="prod" id="works">
+  <h2 class="prod__h"><span data-lr data-from="left" data-clip="0">Собрано, запущено, работает</span></h2>
+  <p class="prod__support" data-in="160,22">Проекты, которые уже в сети. По ссылке откроется живой сайт.</p>
+  <span class="hair sec-hair" aria-hidden="true" data-hair></span>
+  <ul class="pills" id="pills">
+    <li class="pill is-active"><span class="pill__fill"></span><button type="button" data-kind="all" aria-pressed="true">Все (4)</button></li>
+    <li class="pill"><span class="pill__fill"></span><button type="button" data-kind="service" aria-pressed="false">Сервисы (1)</button></li>
+    <li class="pill"><span class="pill__fill"></span><button type="button" data-kind="shop" aria-pressed="false">Магазины (1)</button></li>
+    <li class="pill"><span class="pill__fill"></span><button type="button" data-kind="portfolio" aria-pressed="false">Портфолио (1)</button></li>
+    <li class="pill"><span class="pill__fill"></span><button type="button" data-kind="landing" aria-pressed="false">Лендинги (1)</button></li>
+  </ul>
+  <p class="prod__sort" data-in="420,14">«+» добавит пример в заявку <svg viewBox="0 0 8 10" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M4 0v9M0.6 5.6L4 9.2 7.4 5.6"/></svg></p>
+  <ul class="cards" id="cards">
+    <li class="card" data-kind="service" data-name="avtosimptom.ru"><article>
+      <div class="card__plate" data-frame-cursor>
+        <div class="poster" aria-hidden="true"><span>avto</span><span>simptom</span></div>
+        <span class="card__idx">(01)</span>
+        <button class="chip" type="button" aria-pressed="false" aria-label="Добавить avtosimptom.ru в заявку как пример"><span class="plus"><i></i><i></i></span></button>
+      </div>
+      <div class="card__meta"><h3>avtosimptom.ru</h3><p>Диагностика авто с ИИ</p></div>
+      <div class="card__foot"><span class="badge">Сервис</span><a class="card__link" href="https://avtosimptom.ru" target="_blank" rel="noopener">Открыть сайт</a></div>
+    </article></li>
+    <li class="card" data-kind="shop" data-name="mrtimeing.ru"><article>
+      <div class="card__plate card__plate--cream" data-frame-cursor>
+        <div class="poster" aria-hidden="true"><span>mr</span><span>timeing</span></div>
+        <span class="card__idx">(02)</span>
+        <button class="chip" type="button" aria-pressed="false" aria-label="Добавить mrtimeing.ru в заявку как пример"><span class="plus"><i></i><i></i></span></button>
+      </div>
+      <div class="card__meta"><h3>mrtimeing.ru</h3><p>Интернет-магазин часов</p></div>
+      <div class="card__foot"><span class="badge">Магазин</span><a class="card__link" href="https://mrtimeing.ru" target="_blank" rel="noopener">Открыть сайт</a></div>
+    </article></li>
+    <li class="card" data-kind="portfolio" data-name="abuadil.ru"><article>
+      <div class="card__plate card__plate--ink" data-frame-cursor>
+        <div class="poster" aria-hidden="true"><span>abu</span><span>adil</span></div>
+        <span class="card__idx">(03)</span>
+        <button class="chip" type="button" aria-pressed="false" aria-label="Добавить abuadil.ru в заявку как пример"><span class="plus"><i></i><i></i></span></button>
+      </div>
+      <div class="card__meta"><h3>abuadil.ru</h3><p>Портфолио каллиграфа</p></div>
+      <div class="card__foot"><span class="badge">Портфолио</span><a class="card__link" href="https://abuadil.ru" target="_blank" rel="noopener">Открыть сайт</a></div>
+    </article></li>
+    <li class="card" data-kind="landing" data-name="Dag Kovka и Dag Stone"><article>
+      <div class="card__plate card__plate--red" data-frame-cursor>
+        <div class="poster" aria-hidden="true"><span>dag</span><span>kovka</span><span>+ stone</span></div>
+        <span class="card__idx">(04)</span>
+        <button class="chip" type="button" aria-pressed="false" aria-label="Добавить Dag Kovka и Dag Stone в заявку как пример"><span class="plus"><i></i><i></i></span></button>
+      </div>
+      <div class="card__meta"><h3>Dag Kovka + Stone</h3><p>Ковка и песчаник</p></div>
+      <div class="card__foot"><span class="badge">Лендинги</span><span class="card__link" style="text-decoration:none">2 сайта</span></div>
+    </article></li>
+  </ul>
+</section>
+
+<!-- 5. схема -->
+<section class="flow" id="flow">
+  <h2 class="flow__h"><span data-lr data-from="left">Как заявка доходит до вас</span></h2>
+  <p class="flow__support" data-in="160,22">Наведите на метку, чтобы рассмотреть звено. Всю цепочку настраиваю сам.</p>
+  <span class="hair sec-hair" aria-hidden="true" data-hair></span>
+  <div class="flow__frame">
+    <div class="flow__plate" id="flowPlate" data-frame-cursor="light">
+      <svg class="flow__art" id="flowArt" viewBox="0 0 1376 603" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Схема: объявление ведёт на сайт, форма на сайте отправляет заявку в Telegram, по меткам считается цена заявки">
+        <defs><pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#6e6a60" opacity=".4"/></pattern></defs>
+        <rect width="1376" height="603" fill="#14130f"/><rect width="1376" height="603" fill="url(#dots)"/>
+        <g>
+          <rect x="76.5" y="150.5" width="262" height="236" rx="16" fill="#1f1d18" stroke="#6e6a60"/>
+          <circle cx="110" cy="186" r="14" fill="#6e6a60"/>
+          <rect x="134" y="176" width="96" height="8" rx="4" fill="#f4f2ed"/>
+          <text x="134" y="201" class="t-s" fill="#9c978b">реклама</text>
+          <rect x="96" y="222" width="222" height="10" rx="5" fill="#f4f2ed"/><rect x="96" y="242" width="176" height="10" rx="5" fill="#f4f2ed"/>
+          <rect x="96" y="268" width="210" height="6" rx="3" fill="#6e6a60"/><rect x="96" y="282" width="160" height="6" rx="3" fill="#6e6a60"/>
+          <rect x="96" y="320" width="222" height="40" rx="20" fill="#de0419"/>
+          <text x="207" y="345" text-anchor="middle" class="t-b" fill="#f4f2ed">Открыть сайт</text>
+        </g>
+        <path d="M346 268h66" stroke="#f4f2ed" stroke-dasharray="3 7" fill="none"/><path d="M408 262l8 6-8 6" stroke="#f4f2ed" fill="none"/>
+        <g>
+          <rect x="428" y="56" width="476" height="490" rx="12" fill="#edeae2"/>
+          <path d="M428 68a12 12 0 0 1 12-12h452a12 12 0 0 1 12 12v26H428z" fill="#d8d3c0"/>
+          <circle cx="448" cy="75" r="5" fill="#de0419"/><circle cx="464" cy="75" r="5" fill="#6e6a60"/><circle cx="480" cy="75" r="5" fill="#6e6a60"/>
+          <rect x="504" y="65" width="250" height="20" rx="10" fill="#f4f2ed"/>
+          <text x="518" y="79" class="t-s" fill="#6e6a60">вашсайт.ru</text>
+          <text x="456" y="156" class="t-d" fill="#de0419">ЧТО, КОМУ</text>
+          <text x="456" y="204" class="t-d" fill="#de0419">И ЗАЧЕМ /</text>
+          <rect x="456" y="226" width="230" height="7" rx="3.5" fill="#6e6a60"/><rect x="456" y="240" width="170" height="7" rx="3.5" fill="#6e6a60"/>
+          <rect x="456" y="266" width="160" height="36" rx="18" fill="#de0419"/>
+          <text x="536" y="289" text-anchor="middle" class="t-b" fill="#f4f2ed">Оставить заявку</text>
+          <rect x="456" y="344" width="68" height="92" rx="2" fill="#d8d3c0"/><rect x="536" y="344" width="68" height="92" rx="2" fill="#d8d3c0"/><rect x="616" y="344" width="68" height="92" rx="2" fill="#d8d3c0"/>
+          <rect x="456" y="446" width="48" height="5" fill="#6e6a60"/><rect x="536" y="446" width="48" height="5" fill="#6e6a60"/><rect x="616" y="446" width="48" height="5" fill="#6e6a60"/>
+          <rect x="716.5" y="330.5" width="160" height="188" rx="8" fill="#f4f2ed" stroke="#d8d3c0"/>
+          <text x="732" y="357" class="t-b" fill="#14130f">Заявка</text>
+          <rect x="732.5" y="370.5" width="128" height="24" rx="4" fill="none" stroke="#6e6a60"/><rect x="732.5" y="402.5" width="128" height="24" rx="4" fill="none" stroke="#6e6a60"/><rect x="732.5" y="434.5" width="128" height="24" rx="4" fill="none" stroke="#6e6a60"/>
+          <rect x="732" y="472" width="128" height="30" rx="15" fill="#de0419"/>
+          <text x="796" y="492" text-anchor="middle" class="t-s" fill="#f4f2ed">Отправить</text>
+        </g>
+        <path d="M884 424c46 0 46-124 92-124" stroke="#f4f2ed" stroke-dasharray="3 7" fill="none"/><path d="M972 294l8 6-8 6" stroke="#f4f2ed" fill="none"/>
+        <g>
+          <rect x="984.75" y="52.75" width="216" height="498" rx="30" fill="#1f1d18" stroke="#f4f2ed" stroke-width="1.5"/>
+          <rect x="1062" y="66" width="60" height="7" rx="3.5" fill="#6e6a60"/>
+          <circle cx="1016" cy="108" r="14" fill="#de0419"/><text x="1016" y="114" text-anchor="middle" class="t-b" fill="#f4f2ed">З</text>
+          <text x="1038" y="106" class="t-b" fill="#f4f2ed">Заявки с сайта</text><text x="1038" y="122" class="t-s" fill="#9c978b">бот</text>
+          <path d="M985 136.5h216" stroke="#6e6a60" opacity=".6"/>
+          <rect x="1000" y="152" width="178" height="92" rx="14" fill="#f4f2ed"/><rect x="1000" y="230" width="14" height="14" fill="#f4f2ed"/>
+          <text x="1014" y="176" class="t-b" fill="#14130f">Новая заявка</text><text x="1014" y="196" class="t-s" fill="#14130f">Имя: Марина</text><text x="1014" y="213" class="t-s" fill="#14130f">Нужно: лендинг</text><text x="1166" y="234" text-anchor="end" class="t-s" fill="#6e6a60">10:12</text>
+          <rect x="1000" y="256" width="178" height="92" rx="14" fill="#f4f2ed"/><rect x="1000" y="334" width="14" height="14" fill="#f4f2ed"/>
+          <text x="1014" y="280" class="t-b" fill="#14130f">Новая заявка</text><text x="1014" y="300" class="t-s" fill="#14130f">Имя: Руслан</text><text x="1014" y="317" class="t-s" fill="#14130f">Нужно: реклама</text><text x="1166" y="338" text-anchor="end" class="t-s" fill="#6e6a60">10:47</text>
+          <rect x="1000" y="360" width="130" height="40" rx="14" fill="#6e6a60" opacity=".5"/>
+        </g>
+        <path d="M1206 300h24" stroke="#f4f2ed" stroke-dasharray="3 7" fill="none"/><path d="M1228 294l8 6-8 6" stroke="#f4f2ed" fill="none"/>
+        <g>
+          <rect x="1244.5" y="180.5" width="104" height="240" rx="12" fill="#1f1d18" stroke="#6e6a60"/>
+          <text x="1258" y="208" class="t-s" fill="#f4f2ed">цена</text><text x="1258" y="224" class="t-s" fill="#f4f2ed">заявки</text>
+          <rect x="1260" y="290" width="14" height="100" fill="#f4f2ed"/><rect x="1282" y="318" width="14" height="72" fill="#f4f2ed"/><rect x="1304" y="342" width="14" height="48" fill="#f4f2ed"/><rect x="1326" y="362" width="14" height="28" fill="#de0419"/>
+          <path d="M1256 392.5h88" stroke="#6e6a60"/>
+        </g>
+      </svg>
+      <div class="flow__scrim" id="flowScrim" aria-hidden="true"></div>
+      <ul class="tags" id="tags">
+        <li class="tag" style="left:5.5%;top:11%" data-fx="0.15" data-fy="0.444"><button type="button" aria-label="Реклама — Telegram Ads и Авито"><span class="tag__mark"><span class="plus"><i></i><i></i></span></span><span class="tag__text"><span class="tag__name">Реклама</span><span class="tag__spec">Telegram Ads и Авито</span></span></button></li>
+        <li class="tag" style="left:47%;top:23.5%" data-fx="0.392" data-fy="0.3"><button type="button" aria-label="Оффер — что, кому и зачем"><span class="tag__mark"><span class="plus"><i></i><i></i></span></span><span class="tag__text"><span class="tag__name">Оффер</span><span class="tag__spec">Что, кому и зачем</span></span></button></li>
+        <li class="tag" style="left:36%;top:78%" data-fx="0.578" data-fy="0.7"><button type="button" aria-label="Форма — имя, контакт, задача"><span class="tag__mark"><span class="plus"><i></i><i></i></span></span><span class="tag__text"><span class="tag__name">Форма</span><span class="tag__spec">Имя, контакт, задача</span></span></button></li>
+        <li class="tag" style="left:69%;top:74%" data-fx="0.794" data-fy="0.415"><button type="button" aria-label="Telegram — заявка сразу в чате"><span class="tag__mark"><span class="plus"><i></i><i></i></span></span><span class="tag__text"><span class="tag__name">Telegram</span><span class="tag__spec">Заявка сразу в чате</span></span></button></li>
+        <li class="tag" style="right:.5%;top:17.5%" data-fx="0.942" data-fy="0.5"><button type="button" aria-label="Цифры — метки и цена заявки"><span class="tag__mark"><span class="plus"><i></i><i></i></span></span><span class="tag__text"><span class="tag__name">Цифры</span><span class="tag__spec">Метки и цена заявки</span></span></button></li>
+      </ul>
+    </div>
+    <div class="flow__meta"><span data-in="420,0">Реклама, сайт, форма, Telegram</span><span data-in="460,0">5 звеньев</span></div>
+    <div class="flow__pick" aria-live="polite"><b id="pickName"></b><span id="pickSpec"></span></div>
+  </div>
+</section>
+</main>
+
+<!-- 6. подвал -->
+<footer class="foot" id="contact" data-header-accent>
+  <div class="lock">
+    <h2><span data-lr data-from="left" style="display:flex">Оставьте контакт,</span><span data-lr data-from="left" data-delay="110" style="display:flex">отвечу в Telegram</span></h2>
+    <form class="quick" id="quick" novalidate>
+      <span class="quick__label" aria-hidden="true">Контакт</span>
+      <label class="sr-only" for="q-contact">Телефон или ник в Telegram</label>
+      <input id="q-contact" name="contact" type="text" maxlength="80" autocomplete="off" placeholder="телефон или @ник">
+      <button type="submit"><span class="quick__go">Отправить</span><span class="quick__arrow" aria-hidden="true">→</span></button>
+    </form>
+    <p class="lock__note" id="quickNote" role="status" aria-live="polite">Отправляя контакт, вы соглашаетесь на обработку персональных данных.</p>
+  </div>
+  <nav class="fnav" aria-label="Подвал">
+    <div class="fcol"><h3>Услуги</h3><ul>
+      <li class="nav-item"><span class="nav-item__bar"></span><a class="nav-item__label" href="#services">Сайты</a></li>
+      <li class="nav-item"><span class="nav-item__bar"></span><a class="nav-item__label" href="#services">Telegram Ads</a></li>
+      <li class="nav-item"><span class="nav-item__bar"></span><a class="nav-item__label" href="#services">Авито</a></li>
+      <li class="nav-item"><span class="nav-item__bar"></span><a class="nav-item__label" href="#services">Боты</a></li>
+    </ul></div>
+    <div class="fcol"><h3>Работы</h3><ul>
+      <li class="nav-item"><span class="nav-item__bar"></span><a class="nav-item__label" href="https://avtosimptom.ru" target="_blank" rel="noopener">avtosimptom.ru</a></li>
+      <li class="nav-item"><span class="nav-item__bar"></span><a class="nav-item__label" href="https://mrtimeing.ru" target="_blank" rel="noopener">mrtimeing.ru</a></li>
+      <li class="nav-item"><span class="nav-item__bar"></span><a class="nav-item__label" href="https://abuadil.ru" target="_blank" rel="noopener">abuadil.ru</a></li>
+      <li class="nav-item"><span class="nav-item__bar"></span><a class="nav-item__label" href="#works">Все работы</a></li>
+    </ul></div>
+    <div class="fcol"><h3>Связь</h3><ul>
+      <li class="nav-item"><span class="nav-item__bar"></span><a class="nav-item__label" data-tg href="https://t.me/Vae126" target="_blank" rel="noopener">Telegram</a></li>
+      <li class="nav-item"><span class="nav-item__bar"></span><button class="nav-item__label" type="button" data-open-lead>Заявка</button></li>
+      <li class="nav-item"><span class="nav-item__bar"></span><a class="nav-item__label" href="#flow">Схема</a></li>
+      <li class="nav-item"><span class="nav-item__bar"></span><a class="nav-item__label" href="#top">Наверх</a></li>
+    </ul></div>
+  </nav>
+  <span class="hair foot__hair" aria-hidden="true" id="footHair"></span>
+  <div class="legal" id="legal"><span>Теймур  ·  сайты, Telegram Ads, Авито, боты</span><span class="legal__end">© 2026  ·  Собрано вручную, в одном файле</span></div>
+  <div class="legal legal--last" id="legalLast">© 2026  ·  Собрано вручную, в одном файле</div>
+  <div class="social" id="social">Telegram  ·  <a data-tg data-tg-at href="https://t.me/Vae126" target="_blank" rel="noopener">@Vae126</a></div>
+  <div class="wordmark" id="wordmark" aria-hidden="true"></div>
+</footer>
+
+<!-- панель заявки -->
+<div class="panel" id="panel" role="dialog" aria-modal="true" aria-label="Заявка" aria-hidden="true">
+  <div class="panel__top"><span>Теймур</span><button type="button" id="panelClose">Закрыть</button></div>
+  <div class="panel__scroll" data-lenis-prevent>
+    <form id="leadForm" novalidate>
+      <label class="sr-only" for="l-name">Ваше имя</label>
+      <input class="panel__big" id="l-name" name="name" type="text" maxlength="60" autocomplete="name" placeholder="Ваше имя">
+      <label class="sr-only" for="l-contact">Телефон или ник в Telegram</label>
+      <input class="panel__big" id="l-contact" name="contact" type="text" maxlength="80" autocomplete="off" placeholder="Телефон или @ник">
+      <p class="panel__status trim" id="panelStatus" aria-live="polite">Что нужно</p>
+      <div class="panel__chips">
+        <label class="pchip"><input type="checkbox" name="need" value="Сайт"><span>Сайт</span></label>
+        <label class="pchip"><input type="checkbox" name="need" value="Telegram Ads"><span>Telegram Ads</span></label>
+        <label class="pchip"><input type="checkbox" name="need" value="Авито"><span>Авито</span></label>
+        <label class="pchip"><input type="checkbox" name="need" value="SEO"><span>SEO</span></label>
+        <label class="pchip"><input type="checkbox" name="need" value="Бот или Mini App"><span>Бот или Mini App</span></label>
+      </div>
+      <label class="sr-only" for="l-task">Коротко о задаче</label>
+      <textarea class="panel__task" id="l-task" name="task" rows="2" maxlength="600" placeholder="Коротко о задаче"></textarea>
+      <p class="panel__refs" id="panelRefs" hidden></p>
+      <input class="panel__hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="panel__foot">
+        <label class="consent"><input type="checkbox" name="consent"><span>Согласен на обработку персональных данных</span></label>
+        <button class="panel__send" type="submit" id="panelSend">Отправить заявку</button>
+      </div>
+      <p class="panel__msg" id="panelMsg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+
+<script>
+/* Страховка: если модуль не запустился, убираем прелоадер и показываем страницу как есть */
+setTimeout(function(){
+  if (window.__siteOpening) return;
+  var p = document.getElementById('preloader'); if (p) p.remove();
+  document.documentElement.classList.add('no-engine'); document.body.style.overflow = '';
+}, 9000);
+</script>
+<script type="module">
+/* ================= НАСТРОЙКИ =================
+   1. В Telegram откройте @BotFather, команда /newbot, скопируйте токен.
+   2. С аккаунта, куда должны приходить заявки, откройте нового бота и нажмите «Start».
+   3. Узнайте числовой ID этого аккаунта в @userinfobot.
+   4. Вставьте токен и ID ниже.
+   Пока поля пустые, форма открывает у посетителя Telegram с готовым текстом заявки. */
+const CONFIG = {
+  BOT_TOKEN: '',          // например '1234567890:AAH...'
+  CHAT_ID: '',            // например '123456789'
+  TG_USERNAME: 'Vae126',  // личный аккаунт: ссылки «Telegram» и запасной путь заявки
+  METRIKA_ID: null        // номер счётчика Яндекс Метрики, если нужна цель «lead»
+};
+/* ============================================= */
+
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const hoverOff = () => innerWidth <= 768;          // springsConfig.mobileWidth
+const r3 = (x) => Math.round(x * 1000) / 1000;
+try { history.scrollRestoration = 'manual'; } catch (e) {}
+window.scrollTo(0, 0);
+
+/* ---------- общий тикер ---------- */
+const subs = []; let rafId = 0;
+function loop(t) {
+  for (const s of subs.slice()) {
+    if (t - s.last <= s.gap) continue;
+    const dt = t - s.last; s.last = t;
+    try { s.fn(t, dt); } catch (e) { console.error(e); }
+  }
+  rafId = subs.length ? requestAnimationFrame(loop) : 0;
+}
+function subscribe(fn, gap = 0) {
+  const s = { fn, gap, last: -1e9 }; subs.push(s);
+  if (!rafId) rafId = requestAnimationFrame(loop);
+  return () => { const i = subs.indexOf(s); if (i >= 0) subs.splice(i, 1); };
+}
+
+/* ---------- Lenis: первым в каждом кадре ---------- */
+let lenis = null;
+subscribe((t) => { if (lenis) lenis.raf(t); });
+import('lenis').then((m) => { lenis = new m.default({ smoothWheel: true }); window.lenis = lenis; })
+  .catch((e) => console.warn('Lenis не загрузился, остаётся обычная прокрутка', e));
+
+/* ---------- корневой кегль выше 1440 + подписчики на ресайз ---------- */
+const FONT_BASE = 16, BASE_WIDTH = 1440, COEF = 1;
+const interpolateFontSize = (w) => FONT_BASE - (FONT_BASE * (((BASE_WIDTH - w) / BASE_WIDTH) * 100 * COEF)) / 100;
+const resizeFns = []; let lastW = 0;
+subscribe(() => {
+  const w = innerWidth; if (w === lastW) return; lastW = w;
+  const size = interpolateFontSize(w);
+  if (size > 16) document.documentElement.style.fontSize = size + 'px';
+  else document.documentElement.style.removeProperty('font-size');
+  resizeFns.forEach((f) => { try { f(); } catch (e) { console.error(e); } });
+}, 100);
+const rem = () => parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+
+/* ---------- пружины ---------- */
+const springWeight = { mass: 2.4, tension: 120, friction: 34 };
+const springWeightSoft = { mass: 1.4, tension: 170, friction: 30 };
+const springInk = { mass: 1, tension: 420, friction: 34 };
+const DEF = { mass: 1, tension: 170, friction: 26 };
+const NUM = /-?\d*\.?\d+/g;
+const parse = (v) => {
+  if (typeof v === 'number') return { n: [v], t: null };
+  const n = []; const t = String(v).replace(NUM, (m) => { n.push(parseFloat(m)); return '\u0001'; });
+  return { n, t };
+};
+const fmt = (t, n) => { if (t === null) return n[0]; let i = 0; return t.replace(/\u0001/g, () => r3(n[i++])); };
+const live = new Set();
+class Spring {
+  constructor(from, on, cfg) {
+    this.base = { ...DEF, ...cfg }; this.on = on; this.k = {};
+    for (const key in from) {
+      const p = parse(from[key]);
+      this.k[key] = { pos: p.n.slice(), vel: p.n.map(() => 0), to: p.n.slice(), t: p.t, cfg: this.base, timer: 0, moving: false };
+    }
+    this.emit();
+  }
+  vals() { const o = {}; for (const key in this.k) { const s = this.k[key]; o[key] = fmt(s.t, s.pos); } return o; }
+  emit() { if (this.on) this.on(this.vals()); }
+  set(v) {
+    for (const key in v) {
+      const s = this.k[key], p = parse(v[key]); clearTimeout(s.timer);
+      s.pos = p.n.slice(); s.to = p.n.slice(); s.vel = p.n.map(() => 0); s.t = p.t; s.moving = false;
+    }
+    this.emit();
+  }
+  start(v, o = {}) {
+    const { config, delay = 0, immediate = false } = o;
+    for (const key in v) {
+      const s = this.k[key], p = parse(v[key]); clearTimeout(s.timer); s.timer = 0;
+      const run = () => {
+        s.timer = 0; s.cfg = config ? { ...this.base, ...config } : this.base;
+        s.to = p.n.slice(); if (p.t !== null) s.t = p.t;
+        if (RM || immediate) { s.pos = p.n.slice(); s.vel.fill(0); s.moving = false; this.emit(); }
+        else { s.moving = true; live.add(this); }
+      };
+      if (delay > 0 && !RM) s.timer = setTimeout(run, delay); else run();
+    }
+  }
+  step(dt) {
+    let any = false;
+    for (const key in this.k) {
+      const s = this.k[key]; if (!s.moving) continue;
+      const { mass, tension, friction } = s.cfg; let rest = true;
+      for (let i = 0; i < s.pos.length; i++) {
+        let pos = s.pos[i], vel = s.vel[i]; const to = s.to[i];
+        for (let n = 0; n < dt; n++) {                         // шаг 1 мс
+          vel += (-tension * 0.000001 * (pos - to) + -friction * 0.001 * vel) / mass;
+          pos += vel;
+        }
+        if (Math.abs(vel) < 0.001 && Math.abs(pos - to) <= 0.01) { pos = to; vel = 0; } else rest = false;
+        s.pos[i] = pos; s.vel[i] = vel;
+      }
+      if (rest) s.moving = false; else any = true;
+    }
+    this.emit(); return any;
+  }
+}
+subscribe((t, dt) => {
+  const d = Math.max(1, Math.min(64, Math.round(dt)));       // кадр не длиннее 64 мс
+  for (const s of [...live]) if (!s.step(d)) live.delete(s);
+});
+const styler = (el) => (v) => {
+  if ('opacity' in v) el.style.opacity = v.opacity;
+  let tf = '';
+  if ('x' in v || 'y' in v) { const x = v.x ?? 0, y = v.y ?? 0; tf += `translate3d(${x}px,${typeof y === 'string' ? y : y + 'px'},0) `; }
+  if ('scaleX' in v) tf += `scaleX(${v.scaleX}) `;
+  if ('scale' in v) tf += `scale(${v.scale}) `;
+  if ('rotate' in v) tf += `rotate(${v.rotate}deg) `;
+  if (tf) el.style.transform = tf;
+  if ('clipPath' in v) el.style.clipPath = v.clipPath;
+};
+
+/* ---------- четыре поведения ---------- */
+function inview(el, { from, to, config, delay = 0, watch = el }) {
+  const sp = new Spring(from, styler(el), config);
+  const io = new IntersectionObserver((es) => {
+    if (!es.some((e) => e.isIntersecting)) return;
+    io.disconnect(); sp.start(to, { delay });
+  }, { threshold: 0 });
+  io.observe(watch); return sp;
+}
+function hover(el, { trigger = el, from, to, config }) {
+  const sp = new Spring(from, styler(el), config);
+  trigger.addEventListener('mouseenter', () => { if (!hoverOff()) sp.start(to); });
+  trigger.addEventListener('mouseleave', () => sp.start(from));
+  return sp;
+}
+function handle(el, render, config) {
+  let cur = -1, want = -1, state = 'in';
+  const sp = new Spring({ opacity: 1 }, (v) => {
+    el.style.opacity = v.opacity;
+    if (state === 'out' && v.opacity <= 0.02) { state = 'in'; cur = want; render(cur); queueMicrotask(() => sp.start({ opacity: 1 })); }
+  }, config);
+  return { set(i) {
+    want = i;
+    if (cur < 0) { cur = i; render(i); return; }
+    if (i === cur && state === 'in') return;
+    if (state === 'in') { state = 'out'; sp.start({ opacity: 0 }); }
+  } };
+}
+
+/* ---------- движок строк и букв ---------- */
+const OUT = { up: { y: '110%', opacity: 1 }, left: { x: -160, opacity: 0 }, right: { x: 160, opacity: 0 } };
+const IN = { up: { y: '0%', opacity: 1 }, left: { x: 0, opacity: 1 }, right: { x: 0, opacity: 1 } };
+const OUT_SOFT = { up: { y: 18, opacity: 0 }, left: { x: -48, opacity: 0 }, right: { x: 48, opacity: 0 } };
+const IN_SOFT = { up: { y: 0, opacity: 1 }, left: { x: 0, opacity: 1 }, right: { x: 0, opacity: 1 } };
+const ctx2d = document.createElement('canvas').getContext('2d');
+function spaceEm(el) {                                         // ширина пробела самого шрифта, в em
+  const cs = getComputedStyle(el), fs = parseFloat(cs.fontSize) || 16;
+  ctx2d.font = `${cs.fontStyle} ${cs.fontWeight} ${fs}px ${cs.fontFamily}`;
+  return r3((ctx2d.measureText('\u00a0').width + (parseFloat(cs.letterSpacing) || 0)) / fs);
+}
+function lineReveal(el) {
+  if (RM) return;                                              // без анимаций текст остаётся обычным потоком
+  const d = el.dataset, from = d.from || 'up', delay = +d.delay || 0, clip = d.clip !== '0';
+  const cfg = d.weight === 'soft' ? springWeightSoft : springWeight, STAGGER = 90;
+  const text = el.textContent.replace(/\s+/g, ' ').trim(); el.textContent = '';
+  const sr = document.createElement('span'); sr.className = 'sr-only'; sr.textContent = text; el.append(sr);
+  const words = text.split(' ').map((w) => {
+    const s = document.createElement('span'); s.className = 'w'; s.setAttribute('aria-hidden', 'true'); s.textContent = w; el.append(s); return s;
+  });
+  el.classList.add('lr', 'pre'); el.style.setProperty('--cg', spaceEm(el) + 'em');
+  const O = clip ? OUT : OUT_SOFT, I = clip ? IN : IN_SOFT;
+  const io = new IntersectionObserver((es) => {
+    if (!es.some((e) => e.isIntersecting)) return;
+    io.disconnect();
+    const tops = [], groups = [];
+    for (const w of words) {
+      const t = w.offsetTop; let i = tops.findIndex((v) => Math.abs(v - t) < 3);
+      if (i < 0) { tops.push(t); groups.push([]); i = tops.length - 1; }
+      groups[i].push(w);
+    }
+    const units = groups.map((g) => {
+      const ln = document.createElement('span'); ln.className = 'ln' + (clip ? ' ln--clip' : ''); ln.setAttribute('aria-hidden', 'true');
+      const u = document.createElement('span'); u.className = 'u';
+      g[0].before(ln); ln.append(u); u.append(...g); return u;
+    });
+    const sps = units.map((u) => new Spring(O[from], styler(u), cfg));
+    el.classList.remove('pre');
+    sps.forEach((s, i) => s.start(I[from], { delay: delay + i * STAGGER }));
+    // после посадки возвращаем обычный поток слов, чтобы текст заново переносился при ресайзе
+    setTimeout(() => units.forEach((u) => { const ln = u.parentNode; if (ln && ln.parentNode) ln.replaceWith(...u.childNodes); }), delay + units.length * STAGGER + 3200);
+  }, { threshold: 0 });
+  io.observe(el);
+}
+
+/* ---------- сигналы прелоадера и первый экран ---------- */
+function mountHero() {
+  $('#heroGate').classList.add('is-open');
+  new Spring({ opacity: 0, x: -170 }, styler($('#hw1')), springWeight).start({ opacity: 1, x: 0 });
+  new Spring({ opacity: 0, x: 170 }, styler($('#hw2')), springWeight).start({ opacity: 1, x: 0 }, { delay: 140 });
+  $$('#heroGate [data-lr]').forEach(lineReveal);
+  $$('#heroGate .plate').forEach((p) => {
+    inview($('.plate__reveal', p), { from: { clipPath: 'inset(100% 0 0 0)' }, to: { clipPath: 'inset(0% 0 0 0)' }, config: springWeight, delay: +p.dataset.reveal, watch: p });
+    hover($('.plate__tint', p), { trigger: p, from: { clipPath: 'inset(100% 0 0 0)' }, to: { clipPath: 'inset(0% 0 0 0)' }, config: { tension: 240, friction: 30 } });
+  });
+  const cta = $('#heroCta');
+  $$('.br', cta).forEach((b) => hover(b, { trigger: cta, from: { x: 0 }, to: { x: +b.dataset.br }, config: { tension: 240, friction: 24 } }));
+}
+
+/* ---------- прелоадер: рамка-видоискатель ---------- */
+const FRAME_W = 460, FRAME_RATIO = 288 / 460, FRAME_MIN = 240, FRAME_SHARE = 0.32, TICK = 15;
+const frameFor = (width) => { const w = Math.round(Math.max(FRAME_MIN, Math.min(width * FRAME_SHARE, FRAME_W))); return { w, h: Math.round(w * FRAME_RATIO) }; };
+const PRE_STEP_MS = 150, MIN_MS = 900, MAX_MS = 7000;
+function runPreloader() {
+  const pre = $('#preloader');
+  const open = () => { window.__siteOpening = true; dispatchEvent(new Event('site:opening')); mountHero(); };
+  const release = () => { window.__siteReady = true; dispatchEvent(new Event('site:ready')); };
+  if (RM || !pre) { if (pre) pre.remove(); open(); release(); return; }
+  const frameEl = $('.pre__frame', pre), veil = $('.pre__veil', pre), content = $('.pre__content', pre), cap = $('.pre__cap', pre), pctEl = $('#prePct'), corners = $$('i', frameEl);
+  const shots = ['pC', 'pA', 'pD', 'pB', 'pE'].map((id) => {
+    const s = $('#' + id + ' svg').cloneNode(true); s.removeAttribute('role'); s.removeAttribute('aria-label'); content.append(s); return s;
+  });
+  const sp = new Spring({ pct: 0, w: FRAME_W, h: 288, armX: TICK, armY: TICK, content: 0, veil: 1, frame: 1 }, (v) => {
+    frameEl.style.width = v.w + 'px'; frameEl.style.height = v.h + 'px'; frameEl.style.opacity = v.frame;
+    veil.style.opacity = v.veil; content.style.opacity = v.content; cap.style.opacity = v.content;
+    corners.forEach((c) => { c.style.width = Math.max(0, v.armX) + 'px'; c.style.height = Math.max(0, v.armY) + 'px'; });
+    pctEl.textContent = Math.min(100, Math.max(0, Math.round(v.pct))) + '%';
+  }, { mass: 1.6, tension: 150, friction: 26 });
+  document.body.style.overflow = 'hidden';
+  sp.start({ content: 1 });
+  let frame = frameFor(innerWidth); sp.set({ w: frame.w, h: frame.h });
+  let finished = false;
+  const onResize = () => { frame = frameFor(innerWidth); if (!finished) sp.start({ w: frame.w, h: frame.h }); };
+  addEventListener('resize', onResize);
+  const UNITS = shots.length + 1;                               // пять пластин + шрифты
+  let fontsReady = false; document.fonts.ready.then(() => { fontsReady = true; });
+  let arrived = 0, released = 0, last = 0;
+  shots.forEach(() => Promise.resolve().then(() => { arrived += 1; }));
+  const started = performance.now();
+  const tick = setInterval(() => {
+    const now = performance.now();
+    if (!finished && released < arrived && now - last >= PRE_STEP_MS) {
+      released += 1; last = now; shots.forEach((s, i) => s.classList.toggle('is-on', i === released - 1));
+    }
+    const p = (released + (fontsReady ? 1 : 0)) / UNITS;
+    sp.start({ pct: p * 100 }, { config: { tension: 260, friction: 34 } });
+    sp.start({ armX: TICK + (frame.w / 2 - TICK) * p, armY: TICK + (frame.h / 2 - TICK) * p });
+    const elapsed = now - started;
+    const ready = released === shots.length && fontsReady && elapsed >= MIN_MS;
+    if (!finished && (ready || elapsed >= MAX_MS)) { clearInterval(tick); finish(); }
+  }, 40);
+  function finish() {
+    finished = true;
+    sp.start({ pct: 100 }, { config: { tension: 320, friction: 34 } });
+    const snapW = frame.w - Math.round(frame.w * 0.048), snapH = frame.h - Math.round(frame.h * 0.049);
+    sp.start({ w: snapW, h: snapH, armX: snapW / 2, armY: snapH / 2 }, { config: { mass: 1, tension: 320, friction: 15 } });
+    setTimeout(() => {
+      sp.start({ content: 0 }, { config: { tension: 200, friction: 30 } });
+      sp.start({ armX: TICK, armY: TICK }, { config: { mass: 1, tension: 220, friction: 30 } });
+    }, 300);
+    setTimeout(() => {
+      sp.start({ w: innerWidth * 1.6, h: innerHeight * 1.6 }, { config: { mass: 1.4, tension: 130, friction: 30 } });
+      sp.start({ veil: 0 }, { config: { tension: 120, friction: 28 } });
+      sp.start({ frame: 0 }, { delay: 420, config: { tension: 170, friction: 30 } });
+    }, 520);
+    setTimeout(open, 620);
+    setTimeout(() => { release(); removeEventListener('resize', onResize); pre.remove(); document.body.style.overflow = ''; }, 1420);
+  }
+}
+
+/* ---------- шапка: тон по блоку под ней ---------- */
+const hdr = $('#hdr'), accents = $$('[data-header-accent]');
+function tone() {
+  const line = hdr.offsetHeight / 2;
+  hdr.classList.toggle('is-accent', accents.some((el) => { const r = el.getBoundingClientRect(); return r.top <= line && r.bottom > line; }));
+}
+addEventListener('scroll', tone, { passive: true }); addEventListener('resize', tone); tone();
+
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href^="#"]'); if (!a) return;
+  const id = a.getAttribute('href'); const top = id === '#top'; const t = top ? document.body : $(id); if (!t) return;
+  e.preventDefault();
+  const off = -(hdr.offsetHeight - 1);
+  if (lenis) lenis.scrollTo(top ? 0 : t, { offset: top ? 0 : off });
+  else window.scrollTo({ top: top ? 0 : t.getBoundingClientRect().top + scrollY + off, behavior: RM ? 'auto' : 'smooth' });
+});
+
+/* ---------- заявки: бот или готовое сообщение в Telegram ---------- */
+const tgUrl = 'https://t.me/' + CONFIG.TG_USERNAME;
+$$('[data-tg]').forEach((a) => { a.href = tgUrl; if (a.hasAttribute('data-tg-at')) a.textContent = '@' + CONFIG.TG_USERNAME; });
+const configured = !!(CONFIG.BOT_TOKEN && CONFIG.CHAT_ID);
+const refs = new Set();
+const validContact = (c) => c.replace(/\D/g, '').length >= 10 || /^@?[a-zA-Z][a-zA-Z0-9_]{4,31}$/.test(c);
+function utmLine() {
+  const p = new URLSearchParams(location.search), out = [];
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach((k) => { if (p.get(k)) out.push(k.replace('utm_', '') + '=' + p.get(k).slice(0, 80)); });
+  return out.join(', ');
+}
+function buildText(d, viaBot) {
+  const lines = [viaBot ? 'Новая заявка с сайта' : 'Здравствуйте! Оставляю заявку с сайта.', ''];
+  if (d.name) lines.push('Имя: ' + d.name);
+  lines.push('Контакт: ' + d.contact);
+  if (d.need) lines.push('Нужно: ' + d.need);
+  if (d.task) lines.push('Задача: ' + d.task);
+  if (refs.size) lines.push('Нравится: ' + [...refs].join(', '));
+  if (viaBot) { lines.push('', 'Страница: ' + location.origin + location.pathname); const u = utmLine(); if (u) lines.push('Метки: ' + u); }
+  return lines.join('\n');
+}
+function sendToBot(text) {
+  const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 9000);
+  return fetch('https://api.telegram.org/bot' + CONFIG.BOT_TOKEN + '/sendMessage', {
+    method: 'POST', signal: ctrl.signal,
+    body: new URLSearchParams({ chat_id: CONFIG.CHAT_ID, text, disable_web_page_preview: 'true' })
+  }).then((r) => r.json()).then((j) => { if (!j.ok) throw new Error(j.description || 'Telegram API error'); })
+    .finally(() => clearTimeout(timer));
+}
+const goal = () => { if (CONFIG.METRIKA_ID && typeof window.ym === 'function') window.ym(CONFIG.METRIKA_ID, 'reachGoal', 'lead'); };
+/* Возвращает { sent: true } или { link } — ссылку, по которой посетитель отправит заявку сам */
+async function deliver(d) {
+  const link = tgUrl + '?text=' + encodeURIComponent(buildText(d, false));
+  if (!configured) { window.open(link, '_blank', 'noopener'); goal(); return { link }; }
+  try { await sendToBot(buildText(d, true)); goal(); return { sent: true }; }
+  catch (e) { console.warn('Заявка не ушла через бота:', e); goal(); return { link }; }
+}
+const fallbackHtml = (link) => `Заявка готова. Откройте Telegram, текст уже вставлен, останется нажать «Отправить»: <a href="${link.replace(/"/g, '&quot;')}" target="_blank" rel="noopener">открыть Telegram</a>`;
+
+/* ---------- панель заявки ---------- */
+const panel = $('#panel'), leadForm = $('#leadForm'), panelMsg = $('#panelMsg'), panelSend = $('#panelSend');
+let panelOpen = false, parkTimer = 0, opener = null;
+const panelY = new Spring({ y: -100 }, (v) => { panel.style.transform = `translateY(${v.y}%)`; }, { mass: 1.2, tension: 190, friction: 30 });
+function openPanel(from) {
+  if (panelOpen || !window.__siteOpening) return;
+  panelOpen = true; opener = from || document.activeElement; clearTimeout(parkTimer);
+  panel.style.visibility = 'visible'; panel.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden'; panelY.start({ y: 0 });
+  requestAnimationFrame(() => $('#l-name').focus({ preventScroll: true }));
+}
+function closePanel() {
+  if (!panelOpen) return;
+  panelOpen = false; panel.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+  panelY.start({ y: -100 }); parkTimer = setTimeout(() => { panel.style.visibility = 'hidden'; }, 700);
+  if (opener && opener.focus) opener.focus({ preventScroll: true });
+}
+$$('[data-open-lead]').forEach((b) => b.addEventListener('click', () => openPanel(b)));
+$('#panelClose').addEventListener('click', closePanel);
+addEventListener('keydown', (e) => {
+  if (!panelOpen) return;
+  if (e.key === 'Escape') { closePanel(); return; }
+  if (e.key !== 'Tab') return;
+  const f = $$('button, input:not([tabindex="-1"]), textarea, a[href]', panel).filter((n) => !n.disabled && n.offsetParent !== null);
+  if (!f.length) return;
+  const first = f[0], lastEl = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); lastEl.focus(); }
+  else if (!e.shiftKey && document.activeElement === lastEl) { e.preventDefault(); first.focus(); }
+});
+function syncRefs() {
+  $('#refCount').textContent = '(' + refs.size + ')';
+  const p = $('#panelRefs'); p.hidden = !refs.size; p.textContent = refs.size ? 'Примеры из работ: ' + [...refs].join(', ') : '';
+}
+leadForm.addEventListener('input', (e) => { if (e.target.classList) e.target.classList.remove('is-bad'); });
+leadForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (leadForm.elements.website.value) return;                 // ловушка для спам-ботов
+  const el = leadForm.elements;
+  const d = { name: el.name.value.trim(), contact: el.contact.value.trim(), task: el.task.value.trim(),
+    need: $$('input[name=need]:checked', leadForm).map((c) => c.value).join(', ') };
+  const badName = d.name.length < 2, badContact = !validContact(d.contact);
+  el.name.classList.toggle('is-bad', badName); el.contact.classList.toggle('is-bad', badContact);
+  if (badName) { panelMsg.textContent = 'Напишите имя, чтобы я знал, как к вам обращаться.'; el.name.focus(); return; }
+  if (badContact) { panelMsg.textContent = 'Укажите телефон целиком или ник в Telegram, иначе ответить будет некуда.'; el.contact.focus(); return; }
+  if (!el.consent.checked) { panelMsg.textContent = 'Отметьте согласие, без него заявку отправить нельзя.'; el.consent.focus(); return; }
+  panelSend.disabled = true; panelSend.textContent = 'Отправляю…'; panelMsg.textContent = '';
+  const res = await deliver(d);
+  if (res.sent) { panelSend.textContent = 'Заявка отправлена'; panelMsg.textContent = 'Заявка отправлена. Отвечу в Telegram или по телефону.'; }
+  else { panelSend.disabled = false; panelSend.textContent = 'Отправить заявку'; panelMsg.innerHTML = fallbackHtml(res.link); }
+});
+
+/* ---------- курсор-рамка: только мышь ---------- */
+if (matchMedia('(pointer: fine)').matches) {
+  const fc = document.createElement('div'); fc.className = 'fc'; fc.setAttribute('aria-hidden', 'true');
+  fc.innerHTML = '<i></i><i></i><i></i><i></i>'; document.body.append(fc);
+  document.documentElement.classList.add('has-fc');
+  const marks = [...fc.children], C = [[-1, -1], [1, -1], [-1, 1], [1, 1]];
+  const sp = new Spring({ x: innerWidth / 2, y: innerHeight / 2, spread: 0 }, (v) => {
+    const gap = 5 + v.spread * 17;
+    marks.forEach((m, i) => {
+      const dx = C[i][0] < 0 ? -gap : gap - 11, dy = C[i][1] < 0 ? -gap : gap - 11;
+      m.style.left = v.x + 'px'; m.style.top = v.y + 'px'; m.style.opacity = v.spread;
+      m.style.transform = `translate3d(${r3(dx)}px,${r3(dy)}px,0)`;
+    });
+  }, { mass: 0.8, tension: 380, friction: 30 });
+  addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    const t = e.target.closest ? e.target.closest('[data-frame-cursor]') : null;
+    fc.classList.toggle('is-light', !!t && t.dataset.frameCursor === 'light');
+    sp.start({ x: e.clientX, y: e.clientY, spread: t ? 1 : 0 });
+  }, { passive: true });
+  document.documentElement.addEventListener('pointerleave', () => sp.start({ spread: 0 }));
+}
+
+/* ================= блоки ниже первого экрана ================= */
+function initSections() {
+  /* шапка и все NavItem */
+  $$('.hdr .nav-item').forEach((li) => inview(li, { from: { opacity: 0, y: 12 }, to: { opacity: 1, y: 0 }, config: springWeightSoft, delay: +li.dataset.delay || 0 }));
+  $$('.nav-item').forEach((li) => hover($('.nav-item__bar', li), { trigger: li, from: { scaleX: 0 }, to: { scaleX: 1 }, config: { tension: 280, friction: 28 } }));
+
+  /* общие входы */
+  $$('main [data-lr], footer [data-lr]').forEach((el) => { if (!el.closest('#heroGate')) lineReveal(el); });
+  $$('[data-in]').forEach((el) => {
+    const [delay, y] = el.dataset.in.split(',').map(Number);
+    inview(el, { from: y ? { opacity: 0, y } : { opacity: 0 }, to: y ? { opacity: 1, y: 0 } : { opacity: 1 }, config: springWeightSoft, delay });
+  });
+  $$('[data-hair]').forEach((el) => inview(el, { from: { scaleX: 0 }, to: { scaleX: 1 }, config: springWeight, watch: el.parentElement }));
+
+  /* --- 2. манифест: текст пишется сам --- */
+  {
+    const PACE = 9, h = $('#mani'), frags = $$('[data-wr]', h), items = []; let at = 0;
+    frags.forEach((el, fi) => {
+      const text = el.textContent; el.textContent = ''; el.classList.add('wr'); el.style.setProperty('--cg', spaceEm(el) + 'em');
+      let i = 0;
+      text.split(' ').forEach((word) => {
+        const w = document.createElement('span'); w.className = 'w';
+        for (const ch of word) {
+          const c = document.createElement('span'); c.className = 'ch'; c.textContent = ch; w.append(c);
+          items.push({ sp: new Spring({ opacity: 0, y: 6 }, styler(c), springInk), d: (at + i) * PACE }); i++;
+        }
+        i++; el.append(w);
+      });
+      at += text.length + (fi === 0 ? 1 : 0); el._end = at;
+    });
+    const ul = new Spring({ scaleX: 0 }, styler($('.mani__ul', h)), springWeight);
+    const chairs = $$('[data-chair]', h).map((c) => new Spring({ opacity: 0, y: -18 }, styler(c), springWeight));
+    const rowEnd = [frags[3]._end, frags[5]._end];
+    $$('.chair__rock', h).forEach((r) => hover(r, { from: { rotate: 0 }, to: { rotate: -5 }, config: { tension: 260, friction: 11 } }));
+    const io = new IntersectionObserver((es) => {
+      if (!es.some((e) => e.isIntersecting)) return; io.disconnect();
+      items.forEach((it) => it.sp.start({ opacity: 1, y: 0 }, { delay: it.d }));
+      ul.start({ scaleX: 1 }, { delay: frags[1]._end * PACE });
+      chairs.forEach((c, i) => c.start({ opacity: 1, y: 0 }, { delay: rowEnd[i] * PACE }));
+    }, { threshold: 0 });
+    io.observe(h);
+  }
+
+  /* --- 3. услуги: красная полоса и две карточки едут за строкой --- */
+  {
+    const SERVICES = [
+      { n: '08', left: 'Сайт, реклама и бот у одного исполнителя.', e: 'путь заявки', k: 'От объявления', t: 'до вашего чата в Telegram' },
+      { n: '01', left: 'Одна страница под один оффер. Структура и тексты под рекламу.', e: 'пример', k: 'Dag Kovka', t: 'ковка и песчаник, два лендинга' },
+      { n: '02', left: 'Каталог, карточки товаров, корзина и заказы.', e: 'пример', k: 'mrtimeing.ru', t: 'магазин часов' },
+      { n: '03', left: 'Работы крупно, текста мало, контакт на виду.', e: 'пример', k: 'abuadil.ru', t: 'арабская каллиграфия' },
+      { n: '04', left: 'Каналы и аудитории, объявления, ведение, отчёт в цифрах.', e: 'в отчёте', k: 'Показы, клики', t: 'и цена заявки' },
+      { n: '05', left: 'Профиль, объявления и продвижение.', e: 'на выходе', k: 'Чаты и звонки', t: 'от тех, кто ищет сам' },
+      { n: '06', left: 'Структура, тексты и техническая часть для поиска.', e: 'где', k: 'Яндекс, Google', t: 'спрос, который уже есть' },
+      { n: '07', left: 'Запись, квизы, каталоги, приём заявок.', e: 'на чём', k: 'Python', t: 'aiogram, связка с сайтом' },
+      { n: '08', left: 'Приложение внутри Telegram: каталог, игра, кабинет.', e: 'как', k: 'Без установки', t: 'открывается прямо в чате' },
+    ];
+    const RESTING_ROW = 2, BAND_SPRING = { tension: 210, friction: 30 }, STEP_MS = 2400, ROW_LEAD = 260, ROW_STEP = 70, FADE_SPRING = { tension: 200, friction: 26 };
+    const sec = $('#services'), list = $('#catList'), rows = $$('.cat__row', list), band = $('#catBand'), pl = $('#catPlateL'), pr = $('#catPlateR');
+    let active = RESTING_ROW, over = false, seen = false;
+    const byTimer = () => innerWidth <= 1024;
+    const off = new Spring({ y: 0 }, (v) => { const t = `translate3d(0,${v.y}px,0)`; band.style.transform = t; pl.style.transform = t; pr.style.transform = t; }, BAND_SPRING);
+    const cl = $('.cplate', pl), cr = $('.cplate', pr);
+    const hl = handle(cl, (i) => { const s = SERVICES[i]; cl.innerHTML = `<b class="cplate__n">${s.n}</b><span class="cplate__t">${s.left}</span>`; }, FADE_SPRING);
+    const hr = handle(cr, (i) => { const s = SERVICES[i]; cr.innerHTML = `<span class="cplate__e">${s.e}</span><span class="cplate__k">${s.k}</span><span class="cplate__t">${s.t}</span>`; }, FADE_SPRING);
+    hl.set(active); hr.set(active); rows[active].classList.add('is-active');
+    const offsetFor = (i) => rows[i].offsetTop - rows[RESTING_ROW].offsetTop;
+    function measure() {
+      const base = list.offsetTop + rows[RESTING_ROW].offsetTop, h = rows[RESTING_ROW].offsetHeight, r = rem();
+      band.style.top = base + 'px'; band.style.height = h + 'px';
+      pl.style.top = base + h / 2 - 0.53 * r + 'px'; pr.style.top = base + h / 2 - 0.19 * r + 'px';
+      off.start({ y: offsetFor(active) });
+    }
+    function setActive(i) {
+      if (i === active) return;
+      rows[active].classList.remove('is-active'); active = i; rows[i].classList.add('is-active');
+      off.start({ y: offsetFor(i) }); hl.set(i); hr.set(i);
+    }
+    measure(); resizeFns.push(measure); addEventListener('load', measure);
+    rows.forEach((row, i) => {
+      row.addEventListener('mouseenter', () => setActive(i));
+      row.addEventListener('pointerdown', () => setActive(i));
+      inview($('.cat__label', row), { from: { opacity: 0, y: i === RESTING_ROW ? 0 : i < RESTING_ROW ? 26 : -26 }, to: { opacity: 1, y: 0 }, config: springWeight, delay: ROW_LEAD + Math.abs(i - RESTING_ROW) * ROW_STEP });
+      inview($('.cat__count', row), { from: { opacity: 0 }, to: { opacity: 1 }, config: springWeightSoft, delay: ROW_LEAD + Math.abs(i - RESTING_ROW) * ROW_STEP + 60, watch: row });
+    });
+    list.addEventListener('mouseenter', () => { over = true; });
+    list.addEventListener('mouseleave', () => { over = false; if (!byTimer()) setActive(RESTING_ROW); });
+    new IntersectionObserver((es) => { seen = es[0].isIntersecting && es[0].intersectionRatio >= 0.4; }, { threshold: [0, 0.4, 1] }).observe(sec);
+    if (!RM) setInterval(() => { if (byTimer() && seen && !over && !panelOpen) setActive((active + 1) % rows.length); }, STEP_MS);
+    inview($('#catEyebrow'), { from: { opacity: 0, y: 16 }, to: { opacity: 1, y: 0 }, config: springWeightSoft });
+    inview($('#catSupport'), { from: { opacity: 0, y: 22 }, to: { opacity: 1, y: 0 }, config: springWeightSoft, delay: 160 });
+    inview($('#catHair'), { from: { scaleX: 0 }, to: { scaleX: 1 }, config: springWeight, watch: sec });
+    inview($('#catBandFill'), { from: { scaleX: 0 }, to: { scaleX: 1 }, config: springWeight, watch: band });
+  }
+
+  /* --- 4. работы --- */
+  {
+    const pills = $$('#pills .pill'), cards = $$('#cards .card');
+    pills.forEach((li, i) => {
+      inview(li, { from: { opacity: 0, y: 14 }, to: { opacity: 1, y: 0 }, config: springWeightSoft, delay: 260 + i * 70 });
+      hover($('.pill__fill', li), { trigger: li, from: { scaleX: 0 }, to: { scaleX: 1 }, config: { tension: 260, friction: 28 } });
+      const btn = $('button', li);
+      btn.addEventListener('click', () => {
+        pills.forEach((p) => { const on = p === li; p.classList.toggle('is-active', on); $('button', p).setAttribute('aria-pressed', on); });
+        const kind = btn.dataset.kind;
+        cards.forEach((c) => c.classList.toggle('is-dim', kind !== 'all' && c.dataset.kind !== kind));
+      });
+    });
+    cards.forEach((card, i) => {
+      inview($('.card__plate', card), { from: { clipPath: 'inset(0 0 100% 0)' }, to: { clipPath: 'inset(0 0 0% 0)' }, config: springWeight, delay: i * 110, watch: card });
+      const chip = $('.chip', card);
+      hover($('.plus', chip), { trigger: card, from: { rotate: 0 }, to: { rotate: 90 }, config: { tension: 200, friction: 14 } });
+      chip.addEventListener('click', () => {
+        const on = chip.getAttribute('aria-pressed') !== 'true'; chip.setAttribute('aria-pressed', on);
+        const name = card.dataset.name;
+        if (on) refs.add(name); else refs.delete(name);
+        chip.setAttribute('aria-label', (on ? 'Убрать ' : 'Добавить ') + name + (on ? ' из заявки' : ' в заявку как пример'));
+        syncRefs();
+      });
+    });
+    // строки постера растягиваются на ширину пластины
+    $$('.poster span').forEach((s) => {
+      s.style.fontSize = '100px'; const r = s.getBoundingClientRect().width / 100;
+      s.style.fontSize = r3(Math.min(88 / r, 46)) + 'cqw';
+    });
+  }
+
+  /* --- 5. схема: метки и прожектор --- */
+  {
+    const sec = $('#flow'), plate = $('#flowPlate'), art = $('#flowArt'), scrim = $('#flowScrim'), frame = $('.flow__frame', sec);
+    const tags = $$('.tag', plate); let picked = -1, pinned = -1, lastPointer = 'mouse';
+    inview(plate, { from: { clipPath: 'inset(0 0 100% 0)' }, to: { clipPath: 'inset(0 0 0% 0)' }, config: springWeight, delay: 220, watch: frame });
+    function aim(i) {
+      const p = plate.getBoundingClientRect(), b = art.getBoundingClientRect(), nw = 1376, nh = 603;
+      const scale = Math.max(b.width / nw, b.height / nh);
+      const painted = { w: nw * scale, h: nh * scale };
+      const origin = { x: b.left - p.left + (b.width - painted.w) / 2, y: b.top - p.top + (b.height - painted.h) / 2 };
+      const x = origin.x + +tags[i].dataset.fx * painted.w, y = origin.y + +tags[i].dataset.fy * painted.h;
+      const small = innerWidth <= 548;
+      scrim.style.background = `radial-gradient(circle at ${r3(x)}px ${r3(y)}px, transparent ${small ? '2.5rem' : '5.5rem'}, color-mix(in srgb, var(--scrim) 66%, transparent) ${small ? '6rem' : '14rem'})`;
+    }
+    function pick(i) {
+      picked = i; const small = innerWidth <= 548;
+      tags.forEach((t, j) => { t.classList.toggle('is-on', j === i); t.classList.toggle('is-dim', i >= 0 && j !== i && !small); });
+      sec.classList.toggle('has-pick', i >= 0);
+      if (i < 0) { scrim.style.opacity = 0; return; }
+      aim(i); scrim.style.opacity = 1;
+      $('#pickName').textContent = $('.tag__name', tags[i]).textContent; $('#pickSpec').textContent = $('.tag__spec', tags[i]).textContent;
+    }
+    tags.forEach((li, i) => {
+      const btn = $('button', li);
+      inview(li, { from: { opacity: 0, scale: 0.82 }, to: { opacity: 1, scale: 1 }, config: springWeight, delay: 520 + i * 90, watch: frame });
+      hover($('.plus', btn), { trigger: btn, from: { rotate: 0 }, to: { rotate: 90 }, config: { tension: 200, friction: 14 } });
+      btn.addEventListener('pointerdown', (e) => { lastPointer = e.pointerType; });
+      btn.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse' && pinned < 0) pick(i); });
+      btn.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse' && pinned < 0) pick(-1); });
+      btn.addEventListener('focus', () => { if (btn.matches(':focus-visible') && pinned < 0) pick(i); });
+      btn.addEventListener('blur', () => { if (pinned < 0 && lastPointer === 'mouse') pick(-1); });
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (pinned === i || (lastPointer !== 'mouse' && picked === i)) { pinned = -1; pick(-1); }
+        else { pinned = i; pick(i); }
+      });
+    });
+    plate.addEventListener('click', () => { if (picked >= 0) { pinned = -1; pick(-1); } });
+    resizeFns.push(() => { if (picked >= 0) pick(picked); });
+  }
+
+  /* --- 6. подвал --- */
+  {
+    const foot = $('#contact'), quick = $('#quick'), note = $('#quickNote'), input = $('#q-contact'), btn = $('button', quick);
+    inview(quick, { from: { opacity: 0, y: 18 }, to: { opacity: 1, y: 0 }, config: springWeightSoft, delay: 280 });
+    inview(note, { from: { opacity: 0 }, to: { opacity: 1 }, config: springWeightSoft, delay: 360 });
+    const wake = () => quick.classList.toggle('is-awake', quick.matches(':hover') || document.activeElement === input || !!input.value);
+    ['pointerenter', 'pointerleave', 'focusin', 'focusout', 'input'].forEach((ev) => quick.addEventListener(ev, () => requestAnimationFrame(wake)));
+    hover($('.quick__go', btn), { trigger: btn, from: { x: 0 }, to: { x: -4 }, config: { tension: 280, friction: 26 } });
+    hover($('.quick__arrow', btn), { trigger: btn, from: { x: -8, opacity: 0 }, to: { x: 0, opacity: 1 }, config: { tension: 280, friction: 26 } });
+    quick.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const contact = input.value.trim();
+      if (!validContact(contact)) { note.textContent = 'Укажите телефон целиком или ник в Telegram, иначе ответить будет некуда.'; input.focus(); return; }
+      btn.disabled = true; note.textContent = 'Отправляю…';
+      const res = await deliver({ contact });
+      if (res.sent) note.textContent = 'Заявка отправлена. Отвечу в Telegram или по телефону.';
+      else { btn.disabled = false; note.innerHTML = fallbackHtml(res.link); }
+    });
+    $$('.fcol', foot).forEach((col, i) => {
+      inview(col, { from: { opacity: 0, y: 20 }, to: { opacity: 1, y: 0 }, config: springWeightSoft, delay: i * 110 });
+      $$('.nav-item', col).forEach((li, j) => inview(li, { from: { opacity: 0, y: 12 }, to: { opacity: 1, y: 0 }, config: springWeightSoft, delay: i * 110 + j * 50, watch: col }));
+    });
+    inview($('#footHair'), { from: { scaleX: 0 }, to: { scaleX: 1 }, config: springWeight, delay: 340, watch: foot });
+    inview($('#legal'), { from: { opacity: 0, y: 14 }, to: { opacity: 1, y: 0 }, config: springWeightSoft, delay: 420 });
+    inview($('#social'), { from: { opacity: 0, y: 14 }, to: { opacity: 1, y: 0 }, config: springWeightSoft, delay: 470 });
+    inview($('#legalLast'), { from: { opacity: 0, y: 14 }, to: { opacity: 1, y: 0 }, config: springWeightSoft, delay: 500, watch: foot });
+    // словесный знак: буквы поднимаются из-за среза одна за другой
+    const wm = $('#wordmark');
+    const letters = [...'ТЕЙМУР'].map((ch) => {
+      const w = document.createElement('span'); w.className = 'lw';
+      const l = document.createElement('span'); l.className = 'll'; l.textContent = ch; w.append(l); wm.append(w);
+      return new Spring({ y: '110%', opacity: 1 }, styler(l), springWeight);
+    });
+    const io = new IntersectionObserver((es) => {
+      if (!es.some((e) => e.isIntersecting)) return; io.disconnect();
+      letters.forEach((s, i) => s.start({ y: '0%', opacity: 1 }, { delay: i * 90 }));
+    }, { threshold: 0 });
+    io.observe(wm);
+  }
+  tone();
+}
+
+/* ---------- запуск ---------- */
+runPreloader();
+Promise.race([document.fonts.ready, new Promise((r) => setTimeout(r, 2500))]).then(initSections);
+</script>
+</body>
+</html>
