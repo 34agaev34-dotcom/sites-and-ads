@@ -1,1 +1,70 @@
-{"url":null,"capturedAt":null,"blurred":{},"shots":{}}
+{
+  "url": "http://localhost:8765/",
+  "capturedAt": "2026-10-20T16:19:13.319Z",
+  "blurred": {
+    "desktop": 2,
+    "mobile": 2
+  },
+  "shots": {
+    "hero": {
+      "desktop": {
+        "file": "shots/desktop/hero.png",
+        "heading": "Первый экран",
+        "matchedBy": "primary"
+      },
+      "mobile": {
+        "file": "shots/mobile/hero.png",
+        "heading": "Первый экран",
+        "matchedBy": "primary"
+      }
+    },
+    "services": {
+      "desktop": {
+        "file": "shots/desktop/services.png",
+        "heading": "(02) — Услуги",
+        "matchedBy": "primary"
+      },
+      "mobile": {
+        "file": "shots/mobile/services.png",
+        "heading": "(02) — Услуги",
+        "matchedBy": "primary"
+      }
+    },
+    "trust": {
+      "desktop": {
+        "file": "shots/desktop/trust.png",
+        "heading": "Собрано, запущено, работает",
+        "matchedBy": "primary"
+      },
+      "mobile": {
+        "file": "shots/mobile/trust.png",
+        "heading": "Собрано, запущено, работает",
+        "matchedBy": "primary"
+      }
+    },
+    "form": {
+      "desktop": {
+        "file": "shots/desktop/form.png",
+        "heading": "Оставьте контакт,отвечу в Telegram",
+        "matchedBy": "primary"
+      },
+      "mobile": {
+        "file": "shots/mobile/form.png",
+        "heading": "Оставьте контакт,отвечу в Telegram",
+        "matchedBy": "primary"
+      }
+    },
+    "footer": {
+      "desktop": {
+        "file": "shots/desktop/footer.png",
+        "heading": "Футер",
+        "matchedBy": "primary"
+      },
+      "mobile": {
+        "file": "shots/mobile/footer.png",
+        "heading": "Футер",
+        "matchedBy": "primary"
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import { Img, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from 'remotion';
 import type { Shot } from '../manifest';
+import { SITE_LABEL } from '../scenes';
 import { C, F } from '../theme';
 
 // Скрин с медленным «наездом» камеры; без скрина — честная заглушка.
@@ -38,7 +39,7 @@ const useEnter = (delay: number) => {
 
 // 1440x900 → 960x600 в окне браузера.
 export const Browser: React.FC<{ shot: Shot; width?: number; delay?: number; url?: string }> = ({
-  shot, width = 960, delay = 0, url = 'olegi-text.ru',
+  shot, width = 960, delay = 0, url = SITE_LABEL,
 }) => {
   const p = useEnter(delay);
   const h = Math.round((width * 900) / 1440);
