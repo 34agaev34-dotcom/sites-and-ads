@@ -30,8 +30,8 @@ export const SCENES: SceneDef[] = [
   { kind: 'intro', sec: 2.5, title: 'Разбор сайта', sub: 'сайты + реклама в одних руках' },
   {
     kind: 'shot', sec: 2.5, block: 'hero', devices: ['desktop'],
-    label: 'Первый экран', title: 'Оффер — крупно и сразу', sub: 'сайты и реклама · заявки в Telegram',
-    fallback: { label: 'Первый экран', title: 'Оффер — крупно и сразу', sub: 'сайты и реклама · заявки в Telegram' },
+    label: 'Первый экран', title: 'Сразу ясно, что предлагают', sub: 'сайты и реклама · заявки в Telegram',
+    fallback: { label: 'Первый экран', title: 'Сразу ясно, что предлагают', sub: 'сайты и реклама · заявки в Telegram' },
   },
   {
     kind: 'shot', sec: 2.5, block: 'hero', devices: ['mobile'],
@@ -45,7 +45,7 @@ export const SCENES: SceneDef[] = [
   },
   {
     kind: 'shot', sec: 3.5, block: 'trust', devices: ['mobile', 'desktop'],
-    label: 'Кейсы', title: 'Живые сайты вместо обещаний', sub: '4 проекта — открываются по ссылке',
+    label: 'Готовые работы', title: 'Живые сайты вместо обещаний', sub: '4 проекта — открываются по ссылке',
     fallback: { label: 'Почему мне', title: 'Доверие до первого вопроса', sub: 'опыт и результаты на виду' },
   },
   {
@@ -55,12 +55,12 @@ export const SCENES: SceneDef[] = [
   },
   {
     kind: 'shot', sec: 2, block: 'footer', devices: ['mobile'],
-    label: 'Футер', title: 'Финал — огромное «ЗАЯВКИ»', sub: 'услуги · работы · связь',
+    label: 'Низ сайта', title: 'Внизу — огромное «ЗАЯВКИ»', sub: 'услуги · работы · связь',
     fallback: { label: 'Низ страницы', title: 'Аккуратно до последнего пикселя', sub: 'навигация и контакты' },
   },
   {
     kind: 'summary', sec: 2.5, title: 'Итого',
-    points: ['оффер с первого экрана', 'кейсы живыми ссылками', 'заявка сразу в Telegram'],
+    points: ['понятно с первого экрана', 'работы — живыми ссылками', 'заявка сразу в Telegram'],
   },
   { kind: 'cta', sec: 3, title: 'Хочешь так же?', handle: '@prosto_vibecoding', sub: 'подписывайся — разбираю сайты' },
 ];
